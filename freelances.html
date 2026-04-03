@@ -4,11 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
-  <script>src="js/main.js"</script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+
+      <!-- Logo -->
+     <img src="images/logoafritalent2.png" alt="Logo AfriTalent" width="150">
+
+      <!-- Bouton hamburger mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Liens -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Accueil</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="freelances.html">Freelances</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="tarifs.html">Tarifs</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">À propos</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</header>
+    <main class="container">
+
+<section>
+  <h1>Découvrez nos freelances</h1>
+  <p>
+    Parcourez notre catalogue de talents qualifiés et trouvez le freelance idéal
+    pour votre projet.
+  </p>
+</section>
+<section class="search-bar">
+  <i class="bi bi-search"></i>
+  <input type="text" placeholder="Rechercher un freelance">
+  <i class="bi bi-funnel"></i>
+  <i class="bi bi-sliders"></i>
+</section>
+<section>
+  <h2>Filtres</h2>
+  <button>Tous</button>
+  <button>Développement Web</button>
+  <button>Design</button>
+  <button>Marketing</button>
+  <button>Data</button>
+</section>
+
+<section>
+  <h2>Freelances disponibles</h2>
+
+  <article>
+   <article class="freelance-card">
+    <img src="images/freelancer1.jpg" class="img-fluid" alt="Seydina Limamou Sow">
+  <i class="bi bi-person-circle"></i>
+  <h3>Seydina Limamou Sow</h3>
+  <p><i class="bi bi-geo-alt"></i> Dakar, Sénégal</p>
+  <p><i class="bi bi-briefcase"></i> 32 missions</p>
+  <p><i class="bi bi-star-fill"></i> 4.9/5</p>
+  <button><i class="bi bi-chat-dots"></i> Contacter</button>
+</article>
+
+  <article>
+   <article class="freelance-card">
+    <img src="images/freelancer2.jpg" class="img-fluid" alt="Diegou Laye Sow">
+  <i class="bi bi-person-circle"></i>
+  <h3>Diegou Laye Sow</h3>
+  <p><i class="bi bi-geo-alt"></i> Dakar, Sénégal</p>
+  <p><i class="bi bi-briefcase"></i> 32 missions</p>
+  <p><i class="bi bi-star-fill"></i> 4.9/5</p>
+  <button><i class="bi bi-chat-dots"></i> Contacter</button>
+</article>
+
+   <article class="freelance-card">
+    <img src="images/freelancer3.jpg" class="img-fluid" alt="Mamadou Sow">
+  <i class="bi bi-person-circle"></i>
+  <h3>Mamadou Sow</h3>
+  <p><i class="bi bi-geo-alt"></i> Dakar, Sénégal</p>
+  <p><i class="bi bi-briefcase"></i> 32 missions</p>
+  <p><i class="bi bi-star-fill"></i> 4.9/5</p>
+  <button><i class="bi bi-chat-dots"></i> Contacter</button>
+</article>
+
+  <article class="freelance-card">
+    <img src="images/temoignage3.jpg" class="img-fluid" alt="Mouhamed Sow">
+  <i class="bi bi-person-circle"></i>
+  <h3>Mouhamed Sow</h3>
+  <p><i class="bi bi-geo-alt"></i> Dakar, Sénégal</p>
+  <p><i class="bi bi-briefcase"></i> 32 missions</p>
+  <p><i class="bi bi-star-fill"></i> 4.9/5</p>
+  <button><i class="bi bi-chat-dots"></i> Contacter</button>
+</article>
+
+</section>
+</main>
+<footer>
+  <div class="container">
+    <div class="row">
+
+      <!-- Colonne 1 -->
+      <div class="col-md-3">
+        <h4>AfriTalent</h4>
+        <p>
+          Plateforme de mise en relation entre freelances tech africains
+          et entreprises du monde entier.
+        </p>
+      </div>
+
+      <!-- Colonne 2 -->
+      <div class="col-md-3">
+        <h4>Liens utiles</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="freelances.html">Freelances</a></li>
+          <li><a href="tarifs.html">Tarifs</a></li>
+          <li><a href="about.html">À propos</a></li>
+        </ul>
+      </div>
+      <!-- Colonne 3 -->
+      <div class="col-md-3">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Guide freelance</a></li>
+          <li><a href="#">Centre d’aide</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 4 -->
+      <div class="col-md-3">
+        <h4>Contact</h4>
+        <p>Email : contact@afritalent.com</p>
+        <p>Téléphone : +221 77 000 00 00</p>
+        <p>Dakar, Sénégal</p>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <p>© 2026 AfriTalent — Tous droits réservés</p>
+  </div>
+</footer>
+    <script src="js/main.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
