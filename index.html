@@ -1,199 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
+    <!-- Configuration de base du document -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Feuilles de style externes et personnalisees -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
     <title>Accueil - AfriTalent</title>
 </head>
 <body>
- <header>
+ <!-- En-tete principal avec navigation et hero visuel -->
+ <header class="entete-hero">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-
-      <!-- Logo -->
+      <!-- Logo cliquable qui redirige vers la page d'accueil -->
       <a class="navbar-brand" href="index.html">
         <img src="images/logoafritalent2.png" alt="Logo AfriTalent" width="150">
       </a>
 
-      <!-- Bouton hamburger mobile -->
+      <!-- Bouton menu visible surtout sur mobile -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Liens -->
+      <!-- Menu principal du site -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Accueil</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="freelances.html">Freelances</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="tarifs.html">Tarifs</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">À propos</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-
+          <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="freelances.html">Freelances</a></li>
+          <li class="nav-item"><a class="nav-link" href="tarifs.html">Tarifs</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">A propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
       </div>
-
     </div>
   </nav>
-  <img src="images/header.jpg" alt="Header Image" class="img-fluid w-100">
+
+  <!-- Hero d'accueil avec image de fond, texte de presentation et appels a l'action -->
+  <div class="media-hero">
+    <img src="images/header.jpg" alt="Header Image" class="image-hero img-fluid w-100">
+    <div class="superposition-hero">
+      <div class="contenu-hero-superpose">
+        <span class="accroche-hero">Talents tech africains pour projets ambitieux</span>
+        <h1>Trouvez les meilleurs talents tech africains</h1>
+        <p>
+          AfriTalent connecte freelances qualifies et entreprises du monde entier
+          avec une experience rapide, fiable et humaine.
+        </p>
+
+        <!-- Boutons principaux du hero -->
+        <div class="actions-hero">
+          <button class="bouton-hero bouton-hero-primaire">Je suis Freelance</button>
+          <button class="bouton-hero bouton-hero-secondaire">Je cherche un Freelance</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
+
 <main class="container">
+  <!-- Section d'introduction a la plateforme -->
+  <section class="section-hero">
+    <div class="etiquette-section">Plateforme de recrutement freelance</div>
+    <h2>La plateforme qui connecte freelances qualifies et entreprises ambitieuses</h2>
 
-<!-- HERO -->
-<section>
-  <h1>Trouvez les meilleurs talents tech africains</h1>
-  <h2>La plateforme qui connecte freelances qualifiés et entreprises ambitieuses</h2>
-
-  <p>
-    AfriTalent est une plateforme dédiée aux freelances tech africains et aux entreprises
-    du monde entier à la recherche de compétences fiables. Développeurs, designers,
-    spécialistes marketing ou experts data : trouvez la bonne personne pour vos projets.
-  </p>
-
-  <button>Je suis Freelance</button>
-  <button>Je cherche un Freelance</button>
-
-  <p>+2 500 freelances inscrits</p>
-  <p>+800 entreprises partenaires</p>
-  <p>+12 000 missions réalisées</p>
-</section>
-
-
-<!-- COMMENT ÇA MARCHE -->
-<section class="how-it-works">
-  <h2>Comment fonctionne AfriTalent ?</h2>
-  <article>
-    <i class="bi bi-person-plus"></i>
-    <h3>Créer un profil</h3>
-    <p>Inscrivez-vous gratuitement et complétez votre profil professionnel.</p>
-  </article>
-
-  <article>
-    <i class="bi bi-search"></i>
-    <h3>Trouvez des missions</h3>
-    <p>Explorez des opportunités adaptées à vos compétences.</p>
-  </article>
-
-  <article>
-    <i class="bi bi-chat-dots"></i>
-    <h3>Collaborez</h3>
-    <p>Discutez et travaillez facilement avec les entreprises.</p>
-  </article>
-
-  <article>
-    <i class="bi bi-cash-coin"></i>
-    <h3>Soyez payé</h3>
-    <p>Paiements sécurisés et rapides.</p>
-  </article>
-</section>
-
-<!-- CATÉGORIES -->
-<section class="categories">
-
-  <h2> Nos catégories de services</h2>
-
-  <article>
-    <h3><i class="bi bi-code-slash"></i> Développement Web</h3>
-    <p>650 freelances disponibles</p>
-  </article>
-
-  <article>
-    <h3><i class="bi bi-palette"></i> Design UI/UX</h3>
-    <p>420 freelances disponibles</p>
-  </article>
-
-  <article>
-    <h3><i class="bi bi-megaphone"></i> Marketing Digital</h3>
-    <p>310 freelances disponibles</p>
-  </article>
-
-  <article>
-    <h3><i class="bi bi-bar-chart"></i> Data & Intelligence Artificielle</h3>
-    <p>210 freelances disponibles</p>
-  </article>
-
-  <article>
-    <h3><i class="bi bi-pencil-square"></i> Rédaction Technique</h3>
-    <p>180 freelances disponibles</p>
-  </article>
-
-  <article>
-    <h3><i class="bi bi-cloud"></i> DevOps & Cloud</h3>
-    <p>270 freelances disponibles</p>
-  </article>
-
-</section>
-
-
-<!-- TÉMOIGNAGES -->
-<<!-- TÉMOIGNAGES -->
-<section>
-  <h2>Ils nous font confiance</h2>
-
-  <blockquote>
-    <img src="images/temoignage1.jpg" alt="Sarah M">
     <p>
-      “AfriTalent nous a permis de recruter un développeur en moins de 48h.
-      Une expérience fluide et efficace.”
+      AfriTalent est une plateforme dediee aux freelances tech africains et aux entreprises
+      du monde entier a la recherche de competences fiables. Developpeurs, designers,
+      specialistes marketing ou experts data : trouvez la bonne personne pour vos projets.
     </p>
-    <footer>— Sarah M., Startup CEO</footer>
-  </blockquote>
 
-  <blockquote>
-    <img src="images/temoignage2.jpg" alt="Moussa D">
+    <!-- Chiffres cles mis en avant -->
+    <div class="statistiques-hero">
+      <article class="carte-stat">
+        <strong>2 500+</strong>
+        <span>freelances inscrits</span>
+      </article>
+      <article class="carte-stat">
+        <strong>800+</strong>
+        <span>entreprises partenaires</span>
+      </article>
+      <article class="carte-stat">
+        <strong>12 000+</strong>
+        <span>missions realisees</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- Bandeau de confiance avec secteurs ou partenaires types -->
+  <section class="bandeau-confiance">
+    <span>Utilise par des startups, PME et equipes produit en croissance</span>
+    <div class="logos-confiance">
+      <span>Fintech</span>
+      <span>SaaS</span>
+      <span>E-commerce</span>
+      <span>EdTech</span>
+      <span>Media</span>
+    </div>
+  </section>
+
+  <!-- Presentation du fonctionnement de la plateforme -->
+  <section class="how-it-works">
+    <div class="etiquette-section">Processus simple</div>
+    <h2>Comment fonctionne AfriTalent ?</h2>
+    <article>
+      <h3><i class="bi bi-person-plus"></i>Creer un profil</h3>
+      <p>Inscrivez-vous gratuitement et completez votre profil professionnel.</p>
+    </article>
+
+    <article>
+      <h3><i class="bi bi-search"></i>Trouvez des missions</h3>
+      <p>Explorez des opportunites adaptees a vos competences.</p>
+    </article>
+
+    <article>
+      <h3><i class="bi bi-chat-dots"></i>Collaborez</h3>
+      <p>Discutez et travaillez facilement avec les entreprises.</p>
+    </article>
+
+    <article>
+      <h3><i class="bi bi-cash-coin"></i>Soyez paye</h3>
+      <p>Paiements securises et rapides.</p>
+    </article>
+  </section>
+
+  <!-- Liste des categories de services disponibles -->
+  <section class="categories">
+    <div class="etiquette-section">Expertises disponibles</div>
+    <h2>Nos categories de services</h2>
+
+    <article>
+      <h3><i class="bi bi-code-slash"></i>Developpement Web</h3>
+      <p>650 freelances disponibles</p>
+    </article>
+
+    <article>
+      <h3><i class="bi bi-palette"></i>Design UI/UX</h3>
+      <p>420 freelances disponibles</p>
+    </article>
+
+    <article>
+      <h3><i class="bi bi-megaphone"></i>Marketing Digital</h3>
+      <p>310 freelances disponibles</p>
+    </article>
+
+    <article>
+      <h3><i class="bi bi-bar-chart"></i>Data & Intelligence Artificielle</h3>
+      <p>210 freelances disponibles</p>
+    </article>
+
+    <article>
+      <h3><i class="bi bi-pencil-square"></i>Redaction Technique</h3>
+      <p>180 freelances disponibles</p>
+    </article>
+
+    <article>
+      <h3><i class="bi bi-cloud"></i>DevOps & Cloud</h3>
+      <p>270 freelances disponibles</p>
+    </article>
+  </section>
+
+  <!-- Temoignages pour rassurer les visiteurs -->
+  <section class="section-temoignages">
+    <div class="etiquette-section">Preuve sociale</div>
+    <h2>Ils nous font confiance</h2>
+    <div class="grille-cartes">
+      <blockquote class="carte-temoignage">
+        <img src="images/temoignage1.jpg" alt="Sarah M">
+        <div class="corps-carte">
+          <p>
+            "AfriTalent nous a permis de recruter un developpeur en moins de 48h.
+            Une experience fluide et efficace."
+          </p>
+          <footer>Sarah M., Startup CEO</footer>
+        </div>
+      </blockquote>
+
+      <blockquote class="carte-temoignage">
+        <img src="images/temoignage2.jpg" alt="Fatou D">
+        <div class="corps-carte">
+          <p>
+            "Grace a la plateforme, j'ai trouve des clients internationaux
+            et double mes revenus en 6 mois."
+          </p>
+          <footer>Fatou D., Developpeur Full-Stack</footer>
+        </div>
+      </blockquote>
+
+      <blockquote class="carte-temoignage">
+        <img src="images/temoignage3.jpg" alt="David L">
+        <div class="corps-carte">
+          <p>
+            "Un excellent vivier de talents qualifies. Nous collaborons desormais
+            regulierement avec plusieurs freelances."
+          </p>
+          <footer>David L., Responsable RH</footer>
+        </div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Appel a l'action final avant le footer -->
+  <section class="section-cta">
+    <h2>Pret a demarrer votre prochaine collaboration ?</h2>
     <p>
-      “Grâce à la plateforme, j’ai trouvé des clients internationaux
-      et doublé mes revenus en 6 mois.”
+      Rejoignez AfriTalent aujourd'hui et accedez a des opportunites professionnelles
+      partout dans le monde.
     </p>
-    <footer>— Fatou D., Développeur Full-Stack</footer>
-  </blockquote>
-
-  <blockquote>
-    <img src="images/temoignage3.jpg" alt="David L">
-    <p>
-      “Un excellent vivier de talents qualifiés. Nous collaborons désormais
-      régulièrement avec plusieurs freelances.”
-    </p>
-    <footer>— David L., Responsable RH</footer>
-  </blockquote>
-
-<!-- CTA -->
-<section>
-  <h2>Prêt à démarrer votre prochaine collaboration ?</h2>
-  <p>
-    Rejoignez AfriTalent aujourd'hui et accédez à des opportunités professionnelles
-    partout dans le monde.
-  </p>
-  <button>Créer un compte gratuitement</button>
-</section>
-
+    <button class="bouton-hero bouton-hero-primaire">Creer un compte gratuitement</button>
+  </section>
 </main>
-<footer>
-  <div class="container">
-    <div class="row">
 
-      <!-- Colonne 1 -->
+<!-- Pied de page global du site -->
+<footer class="pied-site">
+  <div class="container">
+    <div class="haut-pied">
+      <div class="marque-pied">
+        <img src="images/logoafritalent2.png" alt="Logo AfriTalent" width="150">
+        <p>Des talents verifies, des collaborations fluides et des missions qui avancent vite.</p>
+      </div>
+      <div class="reseaux-pied">
+        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Colonnes d'informations du footer -->
+    <div class="row">
       <div class="col-md-3">
         <h4>AfriTalent</h4>
         <p>
@@ -202,42 +241,47 @@
         </p>
       </div>
 
-      <!-- Colonne 2 -->
       <div class="col-md-3">
         <h4>Liens utiles</h4>
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="freelances.html">Freelances</a></li>
           <li><a href="tarifs.html">Tarifs</a></li>
-          <li><a href="about.html">À propos</a></li>
+          <li><a href="about.html">A propos</a></li>
         </ul>
       </div>
-      <!-- Colonne 3 -->
+
       <div class="col-md-3">
         <h4>Ressources</h4>
         <ul>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Guide freelance</a></li>
-          <li><a href="#">Centre d’aide</a></li>
+          <li><a href="#">Centre d'aide</a></li>
         </ul>
       </div>
 
-      <!-- Colonne 4 -->
       <div class="col-md-3">
         <h4>Contact</h4>
         <p>Email : contact@afritalent.com</p>
-        <p>Téléphone : +221 77 000 00 00</p>
-        <p>Dakar, Sénégal</p>
+        <p>Telephone : +221 77 000 00 00</p>
+        <p>Dakar, Senegal</p>
       </div>
-
     </div>
 
     <hr>
-
-    <p>© 2026 AfriTalent — Tous droits réservés</p>
+    <div class="bas-pied">
+      <p>2026 AfriTalent - Tous droits reserves</p>
+      <div class="liens-bas-pied">
+        <a href="#">Confidentialite</a>
+        <a href="#">Conditions</a>
+        <a href="#">Support</a>
+      </div>
+    </div>
   </div>
 </footer>
-  <script src="js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   
+
+<!-- Scripts JavaScript necessaires au site -->
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

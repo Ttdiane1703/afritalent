@@ -1,159 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
+    <!-- Informations de base et styles de la page -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>À propos - AfriTalent</title>
+    <title>A propos - AfriTalent</title>
 </head>
 <body>
-  <header>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <!-- En-tete de la page a propos -->
+  <header class="entete-hero">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <!-- Logo de la marque -->
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logoafritalent2.png" alt="Logo AfriTalent" width="150">
+        </a>
+
+        <!-- Bouton menu pour les petits ecrans -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation principale du site -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="freelances.html">Freelances</a></li>
+            <li class="nav-item"><a class="nav-link" href="tarifs.html">Tarifs</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">A propos</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero expliquant la mission d'AfriTalent -->
+    <div class="hero-interne">
+      <div class="container">
+        <div class="contenu-hero-interne">
+          <span class="etiquette-section">Notre histoire</span>
+          <h1>Une plateforme pensee pour valoriser les talents africains</h1>
+          <p>
+            AfriTalent est nee pour connecter les meilleurs freelances tech africains
+            avec des entreprises ambitieuses partout dans le monde.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Bloc qui presente la raison d'etre de la plateforme -->
+    <section class="about-story">
+      <div class="etiquette-section">Vision</div>
+      <h2>Pourquoi AfriTalent existe</h2>
+      <p>
+        Nous croyons que le talent est partout, mais que l'acces aux opportunites n'est
+        pas encore egal partout. Notre mission est de rendre la collaboration plus simple,
+        plus rapide et plus fiable pour les entreprises comme pour les freelances.
+      </p>
+    </section>
+
+    <!-- Presentation des membres de l'equipe -->
+    <section class="about-team">
+      <div class="etiquette-section">Equipe</div>
+      <h2>Les personnes derriere la plateforme</h2>
+      <div class="grille-cartes">
+        <article class="carte-freelance">
+          <img src="images/equipe3.jpg" class="img-fluid" alt="Tidiane Sow">
+          <div class="corps-carte">
+            <h3>Tidiane Sow</h3>
+            <p><i class="bi bi-person-badge"></i>CEO</p>
+          </div>
+        </article>
+        <article class="carte-freelance">
+          <img src="images/equipe2.jpg" class="img-fluid" alt="Samuella Mensah">
+          <div class="corps-carte">
+            <h3>Samuella Mensah</h3>
+            <p><i class="bi bi-cpu"></i>CTO</p>
+          </div>
+        </article>
+        <article class="carte-freelance">
+          <img src="images/equipe1.jpg" class="img-fluid" alt="Aicha Traore">
+          <div class="corps-carte">
+            <h3>Aicha Traore</h3>
+            <p><i class="bi bi-megaphone"></i>Marketing Manager</p>
+          </div>
+        </article>
+        <article class="carte-freelance">
+          <img src="images/temoignage2.jpg" class="img-fluid" alt="Fatou Sow">
+          <div class="corps-carte">
+            <h3>Fatou Sow</h3>
+            <p><i class="bi bi-kanban"></i>Product Manager</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Valeurs portees par l'entreprise -->
+    <section class="values-section">
+      <div class="etiquette-section">Valeurs</div>
+      <h2>Ce qui guide notre travail</h2>
+      <div class="grille-cartes values-grid">
+        <article class="info-card">
+          <h3>Innovation</h3>
+          <p>Construire une experience simple, moderne et utile pour tous les utilisateurs.</p>
+        </article>
+        <article class="info-card">
+          <h3>Accessibilite</h3>
+          <p>Ouvrir les opportunites internationales a davantage de talents qualifies.</p>
+        </article>
+        <article class="info-card">
+          <h3>Communaute</h3>
+          <p>Favoriser des relations durables entre freelances, equipes et entreprises.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Chiffres d'impact de la plateforme -->
+    <section class="about-stats">
+      <div class="etiquette-section">Impact</div>
+      <h2>Nos realisations</h2>
+      <div class="statistiques-hero">
+        <article class="carte-stat">
+          <strong>10k</strong>
+          <span>freelances</span>
+        </article>
+        <article class="carte-stat">
+          <strong>3k</strong>
+          <span>missions</span>
+        </article>
+        <article class="carte-stat">
+          <strong>15</strong>
+          <span>pays couverts</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page du site -->
+  <footer class="pied-site">
     <div class="container">
-
-      <!-- Logo -->
-      <img src="images/logoafritalent2.png" alt="Logo AfriTalent" width="150">
-
-      <!-- Bouton hamburger mobile -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Liens -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Accueil</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="freelances.html">Freelances</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="tarifs.html">Tarifs</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">À propos</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-
-        </ul>
+      <div class="haut-pied">
+        <div class="marque-pied">
+          <img src="images/logoafritalent2.png" alt="Logo AfriTalent" width="150">
+          <p>Des talents verifies, des collaborations fluides et des missions qui avancent vite.</p>
+        </div>
+        <div class="reseaux-pied">
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
       </div>
 
+      <!-- Liens et informations de contact -->
+      <div class="row">
+        <div class="col-md-3">
+          <h4>AfriTalent</h4>
+          <p>Plateforme de mise en relation entre freelances tech africains et entreprises du monde entier.</p>
+        </div>
+        <div class="col-md-3">
+          <h4>Liens utiles</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="freelances.html">Freelances</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
+            <li><a href="about.html">A propos</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Ressources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Guide freelance</a></li>
+            <li><a href="#">Centre d'aide</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Contact</h4>
+          <p>Email : contact@afritalent.com</p>
+          <p>Telephone : +221 77 000 00 00</p>
+          <p>Dakar, Senegal</p>
+        </div>
+      </div>
+      <hr>
+      <div class="bas-pied">
+        <p>2026 AfriTalent - Tous droits reserves</p>
+        <div class="liens-bas-pied">
+          <a href="#">Confidentialite</a>
+          <a href="#">Conditions</a>
+          <a href="#">Support</a>
+        </div>
+      </div>
     </div>
-  </nav>
-</header>
-  <main class='container'>
+  </footer>
 
-<section>
-  <h1>Notre histoire</h1>
-  <p>
-    AfriTalent est né de la volonté de valoriser les talents technologiques africains
-    et de faciliter leur accès au marché international.
-  </p>
-</section>
-
-<section>
-  <h2>Notre équipe</h2>
-  <article class="freelance-card">
-    <img src="images/equipe3.jpg" class="img-fluid" alt="Tidiane Sow">
-  <i class="bi bi-person-circle"></i>
-  <h3>Tidiane Sow</h3>
-  <p><i class="bi bi-geo-alt"></i> CEO</p>
-  </article>
-  <article class="freelance-card">
-    <img src="images/equipe2.jpg" class="img-fluid" alt="Samuella Mensah">
-  <i class="bi bi-person-circle"></i>
-  <h3>Samuella Mensah</h3>
-  <p><i class="bi bi-geo-alt"></i> CTO</p>
-  </article>
-  <article class="freelance-card">
-    <img src="images/equipe1.jpg" class="img-fluid" alt="Aïcha Traoré">
-  <i class="bi bi-person-circle"></i>
-  <h3>Aïcha Traoré</h3>
-  <p><i class="bi bi-geo-alt"></i> Marketing Manager</p>
-  </article>
-  <article class="freelance-card">
-    <img src="images/temoignage2.jpg" class="img-fluid" alt="Fatou Sow">
-  <i class="bi bi-person-circle"></i>
-  <h3>Fatou Sow</h3>
-  <p><i class="bi bi-geo-alt"></i> Product Manager</p>
-  </article>
-</section>
-
-<section>
-  <h2>Nos valeurs</h2>
-  <p>Innovation — Accessibilité — Communauté — Excellence</p>
-</section>
-
-<section class="stats">
-  <h2>nos réalisations</h2>
-  <p><i class="bi bi-people"></i> 10k freelances</p>
-  <p><i class="bi bi-briefcase"></i> 3k missions</p>
-  <p><i class="bi bi-globe"></i> 15 pays</p>
-</section>
-
-</main>
-<footer>
-  <div class="container">
-    <div class="row">
-
-      <!-- Colonne 1 -->
-      <div class="col-md-3">
-        <h4>AfriTalent</h4>
-        <p>
-          Plateforme de mise en relation entre freelances tech africains
-          et entreprises du monde entier.
-        </p>
-      </div>
-
-      <!-- Colonne 2 -->
-      <div class="col-md-3">
-        <h4>Liens utiles</h4>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="freelance.html">Freelances</a></li>
-          <li><a href="tarif.html">Tarifs</a></li>
-          <li><a href="about.html">À propos</a></li>
-        </ul>
-      </div>
-      <!-- Colonne 3 -->
-      <div class="col-md-3">
-        <h4>Ressources</h4>
-        <ul>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Guide freelance</a></li>
-          <li><a href="#">Centre d’aide</a></li>
-        </ul>
-      </div>
-
-      <!-- Colonne 4 -->
-      <div class="col-md-3">
-        <h4>Contact</h4>
-        <p>Email : contact@afritalent.com</p>
-        <p>Téléphone : +221 77 000 00 00</p>
-        <p>Dakar, Sénégal</p>
-      </div>
-
-    </div>
-
-    <hr>
-
-    <p>© 2026 AfriTalent — Tous droits réservés</p>
-  </div>
-</footer>
+  <!-- Scripts JavaScript de la page -->
   <script src="js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

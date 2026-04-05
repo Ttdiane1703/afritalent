@@ -1,0 +1,248 @@
+/* Importe les polices utilisees sur tout le site. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Inter:wght@300;400;500&display=swap');
+
+/* Variables globales:
+   ici on centralise les couleurs, polices et valeurs reutilisables.
+   Si tu modifies une variable ici, tout le site sera mis a jour. */
+:root {
+  /* Couleurs principales de la marque. */
+  --primary: #6C63FF;
+  --secondary: #FF7A18;
+  --dark: #111827;
+  --light: #F9FAFB;
+  --text: #374151;
+  --white: #ffffff;
+
+  /* Polices principales:
+     Poppins pour les titres, Inter pour le texte courant. */
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'Inter', sans-serif;
+
+  /* Valeurs utilitaires:
+     rayon de bordure et duree de transition. */
+  --radius: 14px;
+  --transition: 0.3s ease;
+}
+
+/* Reset de base:
+   on supprime les marges/paddings par defaut du navigateur
+   pour repartir sur une base propre. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style global du body:
+   - police de base
+   - couleurs du texte
+   - fond premium compose de plusieurs degrades
+   - on evite le scroll horizontal parasite */
+body {
+  /* Police par defaut du site pour les textes courants. */
+  font-family: var(--body-font);
+  /* Couleur principale du texte. */
+  color: var(--text);
+  /* Fond multicouche:
+     chaque ligne ajoute un halo ou un degrade pour donner de la profondeur. */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(108, 99, 255, 0.12), transparent 26%),
+    radial-gradient(circle at 100% 0%, rgba(255, 122, 24, 0.11), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(17, 24, 39, 0.05), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #f5f7fb 42%, #eef3f9 100%);
+  /* Espace vertical entre les lignes de texte. */
+  line-height: 1.6;
+  /* Le body prend au moins toute la hauteur de l'ecran. */
+  min-height: 100vh;
+  /* Sert de base a certains pseudo-elements decoratifs. */
+  position: relative;
+  /* Coupe les debordements horizontaux. */
+  overflow-x: hidden;
+}
+
+/* Motif decoratif fixe au-dessus du fond:
+   cela ajoute une grille tres legere pour donner un effet plus haut de gamme. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  /* Deux gradients lineaires formes une grille tres legere. */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  /* Taille d'une "case" de la grille. */
+  background-size: 64px 64px;
+  /* Le mask rend la grille plus visible au centre qu'aux bords. */
+  mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+  opacity: 0.3;
+  z-index: -2;
+}
+
+/* Deuxieme couche decorative:
+   des halos flous colores qui enrichissent visuellement l'arriere-plan. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(108, 99, 255, 0.08), transparent 18%),
+    radial-gradient(circle at 80% 30%, rgba(255, 122, 24, 0.08), transparent 18%),
+    radial-gradient(circle at 50% 80%, rgba(17, 24, 39, 0.05), transparent 22%);
+  filter: blur(18px);
+  z-index: -3;
+}
+
+/* Tous les titres utilisent la police de titre et la couleur foncee. */
+h1, h2, h3, h4 {
+  font-family: var(--title-font);
+  color: var(--dark);
+}
+
+/* Espacement vertical par defaut entre les sections. */
+section {
+  padding: 80px 0;
+}
+
+/* Taille responsive des titres h2:
+   clamp() permet une taille qui s'adapte selon la largeur d'ecran. */
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  margin-bottom: 18px;
+}
+
+/* Style de base des paragraphes. */
+p {
+  font-size: 1rem;
+  color: #5b6472;
+}
+
+/* Regle generique pour les images:
+   elles restent dans leur conteneur et deviennent des blocs. */
+img {
+  max-width: 100%;
+  display: block;
+
+}
+
+/* Conteneur principal du site:
+   limite la largeur maximale du contenu. */
+.container {
+  max-width: 1200px;
+}
+
+/* NAVBAR:
+   barre de navigation fixe en haut, effet glassmorphism, ombre et flou. */
+.navbar {
+  /* Fond semi-transparent pour l'effet glass. */
+  background: rgba(255, 255, 255, 0.82);
+  /* Espace vertical dans la barre. */
+  padding: 16px 0;
+  transition: var(--transition);
+  /* Fixe la navbar en haut pendant le scroll. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  /* Floute ce qu'il y a derriere. */
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.07);
+}
+
+/* Ajoute un espace en haut de la page pour compenser la navbar fixe. */
+body {
+  padding-top: 88px;
+}
+
+/* Style du logo dans la navbar. */
+.navbar-brand {
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--primary) !important;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 0;
+}
+
+/* Style des liens de navigation:
+   forme pill, bon alignement, animation douce au survol. */
+.nav-link {
+  /* Reference pour le trait anime ::after. */
+  position: relative;
+  /* Permet de centrer le texte comme dans un mini bouton. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Zone de clic plus confortable. */
+  min-height: 42px;
+  padding: 8px 14px !important;
+  margin-left: 8px;
+  border-radius: 999px;
+  font-weight: 500;
+  color: var(--dark) !important;
+  transition: color var(--transition), background var(--transition), transform var(--transition);
+}
+
+/* Effet au survol d'un lien de navigation. */
+.nav-link:hover {
+  color: var(--primary) !important;
+  background: rgba(108, 99, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Petit trait decoratif anime sous chaque lien au hover. */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  /* Le trait laisse un peu de marge a gauche et a droite. */
+  left: 14px;
+  right: 14px;
+  /* Place sous le texte. */
+  bottom: 6px;
+  /* Epaisseur du trait. */
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  /* Cache le trait au depart. */
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition);
+}
+
+/* Active le trait decoratif au survol. */
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Style du bouton hamburger sur mobile. */
+.navbar-toggler {
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 14px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+}
+
+/* Halo visible quand le bouton hamburger est focus. */
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.15);
+}
+
+/* Ancien style bootstrap primaire,
+   encore utile si certains boutons utilisent .btn-primary. */
+.btn-primary {
+  background: var(--primary);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--secondary);
+}

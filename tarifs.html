@@ -1,138 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
+    <!-- Metadonnees et ressources CSS -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Tarifs - AfriTalent</title>
 </head>
 <body>
-  <header>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container">
+  <!-- En-tete de la page des tarifs -->
+  <header class="entete-hero">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <!-- Logo du site -->
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logoafritalent2.png" alt="Logo AfriTalent" width="150">
+        </a>
 
-      <!-- Logo -->
-     <img src="images/logoafritalent2.png" alt="Logo AfriTalent" width="150">
+        <!-- Bouton de navigation responsive -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <!-- Bouton hamburger mobile -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Liens -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Accueil</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="freelances.html">Freelances</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="tarifs.html">Tarifs</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">À propos</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-
-        </ul>
+        <!-- Menu principal -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="freelances.html">Freelances</a></li>
+            <li class="nav-item"><a class="nav-link" href="tarifs.html">Tarifs</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">A propos</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
       </div>
+    </nav>
 
+    <!-- Hero de presentation des offres -->
+    <div class="hero-interne">
+      <div class="container">
+        <div class="contenu-hero-interne">
+          <span class="etiquette-section">Tarification</span>
+          <h1>Des offres simples pour freelances et equipes</h1>
+          <p>Choisissez la formule qui vous permet de publier, collaborer et accelerer vos recrutements.</p>
+        </div>
+      </div>
     </div>
-  </nav>
-</header>
+  </header>
+
   <main class="container">
+    <!-- Section principale des cartes tarifaires -->
+    <section class="pricing-section">
+      <div class="etiquette-section">Nos offres</div>
+      <h2>Des tarifs clairs et evolutifs</h2>
+      <div class="cards-grid pricing-grid">
+        <article class="pricing-card">
+          <div class="pricing-badge"><i class="bi bi-rocket"></i></div>
+          <h3>Starter</h3>
+          <p class="pricing-price">Gratuit</p>
+          <ul>
+            <li><i class="bi bi-check-lg"></i>Profil freelance</li>
+            <li><i class="bi bi-check-lg"></i>Acces missions</li>
+            <li><i class="bi bi-x-lg"></i>Support prioritaire</li>
+          </ul>
+          <button class="bouton-hero bouton-hero-secondaire">Commencer</button>
+        </article>
 
-<section class="pricing">
-  <h1>Nos tarifs</h1>
-  <article>
-    <i class="bi bi-rocket"></i>
-    <h3>Starter</h3>
-    <p>Gratuit</p>
-    <ul>
-      <li><i class="bi bi-check-lg"></i> Profil freelance</li>
-      <li><i class="bi bi-check-lg"></i> Accès missions</li>
-      <li><i class="bi bi-x-lg"></i> Support prioritaire</li>
-    </ul>
-  </article>
+        <!-- Offre mise en avant -->
+        <article class="pricing-card pricing-card-featured">
+          <div class="pricing-badge"><i class="bi bi-gem"></i></div>
+          <h3>Pro</h3>
+          <p class="pricing-price">30 000 fcfa/mois</p>
+          <ul>
+            <li><i class="bi bi-check-lg"></i>Tout Starter</li>
+            <li><i class="bi bi-check-lg"></i>Support prioritaire</li>
+            <li><i class="bi bi-check-lg"></i>Badge verifie</li>
+          </ul>
+          <button class="bouton-hero bouton-hero-primaire">Passer au Pro</button>
+        </article>
+      </div>
+    </section>
+  </main>
 
-  <article>
-    <i class="bi bi-gem"></i>
-    <h3>Pro</h3>
-    <p>30 000 fcfa/mois</p>
-    <ul>
-      <li><i class="bi bi-check-lg"></i> Tout Starter</li>
-      <li><i class="bi bi-check-lg"></i> Support prioritaire</li>
-      <li><i class="bi bi-check-lg"></i> Badge vérifié</li>
-    </ul>
-  </article>
-
-</section>
-
-</main>
-<footer>
-  <div class="container">
-    <div class="row">
-
-      <!-- Colonne 1 -->
-      <div class="col-md-3">
-        <h4>AfriTalent</h4>
-        <p>
-          Plateforme de mise en relation entre freelances tech africains
-          et entreprises du monde entier.
-        </p>
+  <!-- Pied de page commun -->
+  <footer class="pied-site">
+    <div class="container">
+      <div class="haut-pied">
+        <div class="marque-pied">
+          <img src="images/logoafritalent2.png" alt="Logo AfriTalent" width="150">
+          <p>Des talents verifies, des collaborations fluides et des missions qui avancent vite.</p>
+        </div>
+        <div class="reseaux-pied">
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
       </div>
 
-      <!-- Colonne 2 -->
-      <div class="col-md-3">
-        <h4>Liens utiles</h4>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="freelances.html">Freelances</a></li>
-          <li><a href="tarifs.html">Tarifs</a></li>
-          <li><a href="about.html">À propos</a></li>
-        </ul>
+      <!-- Informations utiles et liens du footer -->
+      <div class="row">
+        <div class="col-md-3">
+          <h4>AfriTalent</h4>
+          <p>Plateforme de mise en relation entre freelances tech africains et entreprises du monde entier.</p>
+        </div>
+        <div class="col-md-3">
+          <h4>Liens utiles</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="freelances.html">Freelances</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
+            <li><a href="about.html">A propos</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Ressources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Guide freelance</a></li>
+            <li><a href="#">Centre d'aide</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>Contact</h4>
+          <p>Email : contact@afritalent.com</p>
+          <p>Telephone : +221 77 000 00 00</p>
+          <p>Dakar, Senegal</p>
+        </div>
       </div>
-      <!-- Colonne 3 -->
-      <div class="col-md-3">
-        <h4>Ressources</h4>
-        <ul>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Guide freelance</a></li>
-          <li><a href="#">Centre d’aide</a></li>
-        </ul>
+      <hr>
+      <div class="bas-pied">
+        <p>2026 AfriTalent - Tous droits reserves</p>
+        <div class="liens-bas-pied">
+          <a href="#">Confidentialite</a>
+          <a href="#">Conditions</a>
+          <a href="#">Support</a>
+        </div>
       </div>
-
-      <!-- Colonne 4 -->
-      <div class="col-md-3">
-        <h4>Contact</h4>
-        <p>Email : contact@afritalent.com</p>
-        <p>Téléphone : +221 77 000 00 00</p>
-        <p>Dakar, Sénégal</p>
-      </div>
-
     </div>
+  </footer>
 
-    <hr>
-
-    <p>© 2026 AfriTalent — Tous droits réservés</p>
-  </div>
-</footer>
+  <!-- Scripts JavaScript -->
   <script src="js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
