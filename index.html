@@ -169,39 +169,47 @@
   <section class="section-temoignages">
     <div class="etiquette-section">Preuve sociale</div>
     <h2>Ils nous font confiance</h2>
-    <div class="grille-cartes">
-      <blockquote class="carte-temoignage">
-        <img src="images/temoignage1.jpg" alt="Sarah M">
-        <div class="corps-carte">
-          <p>
-            "AfriTalent nous a permis de recruter un developpeur en moins de 48h.
-            Une experience fluide et efficace."
-          </p>
-          <footer>Sarah M., Startup CEO</footer>
-        </div>
-      </blockquote>
+    <!-- Grille Bootstrap responsive :
+         1 carte sur mobile, 2 sur tablette et 3 sur grand ecran. -->
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <blockquote class="carte-temoignage">
+          <img src="images/temoignage1.jpg" alt="Sarah M">
+          <div class="corps-carte">
+            <p>
+              "AfriTalent nous a permis de recruter un developpeur en moins de 48h.
+              Une experience fluide et efficace."
+            </p>
+            <footer>Sarah M., Startup CEO</footer>
+          </div>
+        </blockquote>
+      </div>
 
-      <blockquote class="carte-temoignage">
-        <img src="images/temoignage2.jpg" alt="Fatou D">
-        <div class="corps-carte">
-          <p>
-            "Grace a la plateforme, j'ai trouve des clients internationaux
-            et double mes revenus en 6 mois."
-          </p>
-          <footer>Fatou D., Developpeur Full-Stack</footer>
-        </div>
-      </blockquote>
+      <div class="col-12 col-md-6 col-lg-4">
+        <blockquote class="carte-temoignage">
+          <img src="images/temoignage2.jpg" alt="Fatou D">
+          <div class="corps-carte">
+            <p>
+              "Grace a la plateforme, j'ai trouve des clients internationaux
+              et double mes revenus en 6 mois."
+            </p>
+            <footer>Fatou D., Developpeur Full-Stack</footer>
+          </div>
+        </blockquote>
+      </div>
 
-      <blockquote class="carte-temoignage">
-        <img src="images/temoignage3.jpg" alt="David L">
-        <div class="corps-carte">
-          <p>
-            "Un excellent vivier de talents qualifies. Nous collaborons desormais
-            regulierement avec plusieurs freelances."
-          </p>
-          <footer>David L., Responsable RH</footer>
-        </div>
-      </blockquote>
+      <div class="col-12 col-md-6 col-lg-4">
+        <blockquote class="carte-temoignage">
+          <img src="images/temoignage3.jpg" alt="David L">
+          <div class="corps-carte">
+            <p>
+              "Un excellent vivier de talents qualifies. Nous collaborons desormais
+              regulierement avec plusieurs freelances."
+            </p>
+            <footer>David L., Responsable RH</footer>
+          </div>
+        </blockquote>
+      </div>
     </div>
   </section>
 
@@ -233,7 +241,7 @@
 
     <!-- Colonnes d'informations du footer -->
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <h4>AfriTalent</h4>
         <p>
           Plateforme de mise en relation entre freelances tech africains
@@ -241,7 +249,7 @@
         </p>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <h4>Liens utiles</h4>
         <ul>
           <li><a href="index.html">Accueil</a></li>
@@ -251,7 +259,7 @@
         </ul>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <h4>Ressources</h4>
         <ul>
           <li><a href="#">Blog</a></li>
@@ -260,7 +268,7 @@
         </ul>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-12 col-md-6 col-lg-3">
         <h4>Contact</h4>
         <p>Email : contact@afritalent.com</p>
         <p>Telephone : +221 77 000 00 00</p>

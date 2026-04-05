@@ -55,33 +55,41 @@
     <section class="blog-section">
       <div class="etiquette-section">Articles recents</div>
       <h2>Le blog AfriTalent</h2>
-      <div class="grille-cartes mt-4">
-        <article class="carte-blog">
-          <img src="images/blog1.jpg" class="img-fluid" alt="Article 1">
-          <div class="corps-carte">
-            <h3>Comment reussir en freelance en 2026</h3>
-            <p>Decouvrez les competences cles, les outils indispensables et les bonnes pratiques pour lancer une carriere freelance durable.</p>
-            <a href="#">Lire l'article</a>
-          </div>
-        </article>
+      <!-- Grille Bootstrap des articles :
+           1 colonne sur mobile, 2 sur tablette, 3 sur desktop. -->
+      <div class="row g-4 mt-1">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="carte-blog">
+            <img src="images/blog1.jpg" class="img-fluid" alt="Article 1">
+            <div class="corps-carte">
+              <h3>Comment reussir en freelance en 2026</h3>
+              <p>Decouvrez les competences cles, les outils indispensables et les bonnes pratiques pour lancer une carriere freelance durable.</p>
+              <a href="#">Lire l'article</a>
+            </div>
+          </article>
+        </div>
 
-        <article class="carte-blog">
-          <img src="images/blog2.jpg" class="img-fluid" alt="Article 2">
-          <div class="corps-carte">
-            <h3>Pourquoi les entreprises recrutent en Afrique</h3>
-            <p>Le marche africain attire de plus en plus d'entreprises internationales. Voici pourquoi et comment en profiter.</p>
-            <a href="#">Lire l'article</a>
-          </div>
-        </article>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="carte-blog">
+            <img src="images/blog2.jpg" class="img-fluid" alt="Article 2">
+            <div class="corps-carte">
+              <h3>Pourquoi les entreprises recrutent en Afrique</h3>
+              <p>Le marche africain attire de plus en plus d'entreprises internationales. Voici pourquoi et comment en profiter.</p>
+              <a href="#">Lire l'article</a>
+            </div>
+          </article>
+        </div>
 
-        <article class="carte-blog">
-          <img src="images/blog3.jpg" class="img-fluid" alt="Article 3">
-          <div class="corps-carte">
-            <h3>Top 10 des competences tech recherchees</h3>
-            <p>IA, Cloud, DevOps... Decouvrez les competences les plus demandees sur le marche freelance.</p>
-            <a href="#">Lire l'article</a>
-          </div>
-        </article>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="carte-blog">
+            <img src="images/blog3.jpg" class="img-fluid" alt="Article 3">
+            <div class="corps-carte">
+              <h3>Top 10 des competences tech recherchees</h3>
+              <p>IA, Cloud, DevOps... Decouvrez les competences les plus demandees sur le marche freelance.</p>
+              <a href="#">Lire l'article</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -103,11 +111,11 @@
 
       <!-- Colonnes d'information du pied de page -->
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>AfriTalent</h4>
           <p>Plateforme de mise en relation entre freelances tech africains et entreprises.</p>
         </div>
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>Liens utiles</h4>
           <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -116,7 +124,7 @@
             <li><a href="about.html">A propos</a></li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>Ressources</h4>
           <ul>
             <li><a href="#">Blog</a></li>
@@ -124,7 +132,7 @@
             <li><a href="#">Centre d'aide</a></li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>Contact</h4>
           <p>Email : contact@afritalent.com</p>
           <p>Telephone : +221 77 000 00 00</p>

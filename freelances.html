@@ -114,50 +114,60 @@
     <section class="freelance-listing">
       <div class="etiquette-section">Profils disponibles</div>
       <h2>Freelances disponibles</h2>
-      <div class="grille-cartes">
-        <article class="carte-freelance">
-          <img src="images/freelancer1.jpg" class="img-fluid" alt="Seydina Limamou Sow">
-          <div class="corps-carte">
-            <h3>Seydina Limamou Sow</h3>
-            <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
-            <p><i class="bi bi-briefcase"></i>32 missions</p>
-            <p><i class="bi bi-star-fill"></i>4.9/5</p>
-            <button><i class="bi bi-chat-dots"></i>Contacter</button>
-          </div>
-        </article>
+      <!-- Grille Bootstrap des profils :
+           1 carte sur mobile, 2 sur tablette et 3 sur desktop. -->
+      <div class="row g-4 justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="carte-freelance">
+            <img src="images/freelancer1.jpg" class="img-fluid" alt="Seydina Limamou Sow">
+            <div class="corps-carte">
+              <h3>Seydina Limamou Sow</h3>
+              <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
+              <p><i class="bi bi-briefcase"></i>32 missions</p>
+              <p><i class="bi bi-star-fill"></i>4.9/5</p>
+              <button><i class="bi bi-chat-dots"></i>Contacter</button>
+            </div>
+          </article>
+        </div>
 
-        <article class="carte-freelance">
-          <img src="images/freelancer2.jpg" class="img-fluid" alt="Diegou Laye Sow">
-          <div class="corps-carte">
-            <h3>Diegou Laye Sow</h3>
-            <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
-            <p><i class="bi bi-briefcase"></i>32 missions</p>
-            <p><i class="bi bi-star-fill"></i>4.9/5</p>
-            <button><i class="bi bi-chat-dots"></i>Contacter</button>
-          </div>
-        </article>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="carte-freelance">
+            <img src="images/freelancer2.jpg" class="img-fluid" alt="Diegou Laye Sow">
+            <div class="corps-carte">
+              <h3>Diegou Laye Sow</h3>
+              <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
+              <p><i class="bi bi-briefcase"></i>32 missions</p>
+              <p><i class="bi bi-star-fill"></i>4.9/5</p>
+              <button><i class="bi bi-chat-dots"></i>Contacter</button>
+            </div>
+          </article>
+        </div>
 
-        <article class="carte-freelance">
-          <img src="images/freelancer3.jpg" class="img-fluid" alt="Mamadou Sow">
-          <div class="corps-carte">
-            <h3>Mamadou Sow</h3>
-            <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
-            <p><i class="bi bi-briefcase"></i>32 missions</p>
-            <p><i class="bi bi-star-fill"></i>4.9/5</p>
-            <button><i class="bi bi-chat-dots"></i>Contacter</button>
-          </div>
-        </article>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="carte-freelance">
+            <img src="images/freelancer3.jpg" class="img-fluid" alt="Mamadou Sow">
+            <div class="corps-carte">
+              <h3>Mamadou Sow</h3>
+              <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
+              <p><i class="bi bi-briefcase"></i>32 missions</p>
+              <p><i class="bi bi-star-fill"></i>4.9/5</p>
+              <button><i class="bi bi-chat-dots"></i>Contacter</button>
+            </div>
+          </article>
+        </div>
 
-        <article class="carte-freelance">
-          <img src="images/temoignage3.jpg" class="img-fluid" alt="Mouhamed Sow">
-          <div class="corps-carte">
-            <h3>Mouhamed Sow</h3>
-            <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
-            <p><i class="bi bi-briefcase"></i>32 missions</p>
-            <p><i class="bi bi-star-fill"></i>4.9/5</p>
-            <button><i class="bi bi-chat-dots"></i>Contacter</button>
-          </div>
-        </article>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="carte-freelance">
+            <img src="images/temoignage3.jpg" class="img-fluid" alt="Mouhamed Sow">
+            <div class="corps-carte">
+              <h3>Mouhamed Sow</h3>
+              <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
+              <p><i class="bi bi-briefcase"></i>32 missions</p>
+              <p><i class="bi bi-star-fill"></i>4.9/5</p>
+              <button><i class="bi bi-chat-dots"></i>Contacter</button>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -179,14 +189,14 @@
 
       <!-- Colonnes de liens et informations pratiques -->
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>AfriTalent</h4>
           <p>
             Plateforme de mise en relation entre freelances tech africains
             et entreprises du monde entier.
           </p>
         </div>
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>Liens utiles</h4>
           <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -195,7 +205,7 @@
             <li><a href="about.html">A propos</a></li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>Ressources</h4>
           <ul>
             <li><a href="#">Blog</a></li>
@@ -203,7 +213,7 @@
             <li><a href="#">Centre d'aide</a></li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>Contact</h4>
           <p>Email : contact@afritalent.com</p>
           <p>Telephone : +221 77 000 00 00</p>

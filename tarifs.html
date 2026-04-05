@@ -55,31 +55,36 @@
     <section class="pricing-section">
       <div class="etiquette-section">Nos offres</div>
       <h2>Des tarifs clairs et evolutifs</h2>
-      <div class="cards-grid pricing-grid">
-        <article class="pricing-card">
-          <div class="pricing-badge"><i class="bi bi-rocket"></i></div>
-          <h3>Starter</h3>
-          <p class="pricing-price">Gratuit</p>
-          <ul>
-            <li><i class="bi bi-check-lg"></i>Profil freelance</li>
-            <li><i class="bi bi-check-lg"></i>Acces missions</li>
-            <li><i class="bi bi-x-lg"></i>Support prioritaire</li>
-          </ul>
-          <button class="bouton-hero bouton-hero-secondaire">Commencer</button>
-        </article>
+      <!-- Deux colonnes sur tablette et desktop, une seule sur mobile. -->
+      <div class="row g-4 justify-content-center pricing-grid">
+        <div class="col-12 col-md-6">
+          <article class="pricing-card">
+            <div class="pricing-badge"><i class="bi bi-rocket"></i></div>
+            <h3>Starter</h3>
+            <p class="pricing-price">Gratuit</p>
+            <ul>
+              <li><i class="bi bi-check-lg"></i>Profil freelance</li>
+              <li><i class="bi bi-check-lg"></i>Acces missions</li>
+              <li><i class="bi bi-x-lg"></i>Support prioritaire</li>
+            </ul>
+            <button class="bouton-hero bouton-hero-secondaire">Commencer</button>
+          </article>
+        </div>
 
         <!-- Offre mise en avant -->
-        <article class="pricing-card pricing-card-featured">
-          <div class="pricing-badge"><i class="bi bi-gem"></i></div>
-          <h3>Pro</h3>
-          <p class="pricing-price">30 000 fcfa/mois</p>
-          <ul>
-            <li><i class="bi bi-check-lg"></i>Tout Starter</li>
-            <li><i class="bi bi-check-lg"></i>Support prioritaire</li>
-            <li><i class="bi bi-check-lg"></i>Badge verifie</li>
-          </ul>
-          <button class="bouton-hero bouton-hero-primaire">Passer au Pro</button>
-        </article>
+        <div class="col-12 col-md-6">
+          <article class="pricing-card pricing-card-featured">
+            <div class="pricing-badge"><i class="bi bi-gem"></i></div>
+            <h3>Pro</h3>
+            <p class="pricing-price">30 000 fcfa/mois</p>
+            <ul>
+              <li><i class="bi bi-check-lg"></i>Tout Starter</li>
+              <li><i class="bi bi-check-lg"></i>Support prioritaire</li>
+              <li><i class="bi bi-check-lg"></i>Badge verifie</li>
+            </ul>
+            <button class="bouton-hero bouton-hero-primaire">Passer au Pro</button>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -101,11 +106,11 @@
 
       <!-- Informations utiles et liens du footer -->
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>AfriTalent</h4>
           <p>Plateforme de mise en relation entre freelances tech africains et entreprises du monde entier.</p>
         </div>
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>Liens utiles</h4>
           <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -114,7 +119,7 @@
             <li><a href="about.html">A propos</a></li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>Ressources</h4>
           <ul>
             <li><a href="#">Blog</a></li>
@@ -122,7 +127,7 @@
             <li><a href="#">Centre d'aide</a></li>
           </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-12 col-md-6 col-lg-3">
           <h4>Contact</h4>
           <p>Email : contact@afritalent.com</p>
           <p>Telephone : +221 77 000 00 00</p>
