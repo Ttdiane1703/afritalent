@@ -246,3 +246,1253 @@ body {
 .btn-primary:hover {
   background: var(--secondary);
 }
+/* Zone principale des pages:
+   on garde du padding et un pseudo-element decoratif tres leger. */
+main.container {
+  padding: 48px 16px 80px;
+  position: relative;
+}
+
+main.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.55), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.35), transparent 24%);
+  z-index: -1;
+}
+
+/* Le header hero sert de reference pour les elements en position relative/absolute. */
+.entete-hero {
+  position: relative;
+}
+
+/* Conteneur media du hero pour placer du texte par-dessus l'image. */
+.media-hero {
+  position: relative;
+}
+
+/* Intro juste sous le hero de la page d'accueil. */
+.section-hero {
+  padding-top: 32px;
+  padding-bottom: 96px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Petit label de section:
+   sert a introduire une section avec un style plus editorial/premium. */
+.etiquette-section {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(108, 99, 255, 0.08);
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* Sous-titre principal de la section hero. */
+.section-hero h2 {
+  max-width: 760px;
+  margin: 0 auto 18px;
+  font-size: clamp(1.15rem, 2.3vw, 1.65rem);
+  color: #4b5563;
+  font-weight: 500;
+}
+
+/* Cible seulement le premier paragraphe direct du hero-section. */
+.section-hero > p:first-of-type {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  color: #5b6472;
+}
+
+/* Groupe de boutons dans les sections hero. */
+.actions-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 28px 0 24px;
+  justify-content: center;
+}
+
+/* Base commune de tous les gros boutons CTA. */
+.bouton-hero {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-weight: 700;
+  font-family: var(--title-font);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+}
+
+/* Petit mouvement vertical au survol. */
+.bouton-hero:hover {
+  transform: translateY(-3px);
+}
+
+/* Animation d'entree des enfants du hero sur l'image de la page d'accueil. */
+.contenu-hero-superpose > * {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroReveal 0.8s ease forwards;
+}
+
+/* On decale chaque element pour creer un effet d'apparition en cascade. */
+.contenu-hero-superpose > *:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.contenu-hero-superpose > *:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.contenu-hero-superpose > *:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.contenu-hero-superpose > *:nth-child(4) {
+  animation-delay: 0.32s;
+}
+
+/* Meme logique d'animation pour les autres heroes de pages internes. */
+.contenu-hero-interne > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroReveal 0.8s ease forwards;
+}
+
+/* Delais progressifs pour les blocs internes. */
+.contenu-hero-interne > *:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.contenu-hero-interne > *:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.contenu-hero-interne > *:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+/* Bouton principal:
+   couleur forte + ombre plus visible. */
+.bouton-hero-primaire {
+  background: linear-gradient(135deg, var(--primary), #8a7dff);
+  color: var(--white);
+  box-shadow: 0 16px 30px rgba(108, 99, 255, 0.28);
+}
+
+/* Renforce l'ombre au hover. */
+.bouton-hero-primaire:hover {
+  box-shadow: 0 22px 38px rgba(108, 99, 255, 0.34);
+}
+
+/* Bouton secondaire:
+   plus neutre, en blanc, pour creer une hierarchie avec le principal. */
+.bouton-hero-secondaire {
+  background: var(--white);
+  color: var(--dark);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
+}
+
+/* Hover du bouton secondaire:
+   leger rappel de la couleur secondaire. */
+.bouton-hero-secondaire:hover {
+  background: #fff7f0;
+  color: var(--secondary);
+  box-shadow: 0 18px 34px rgba(255, 122, 24, 0.16);
+}
+
+/* Cartes de chiffres/statistiques. */
+.statistiques-hero {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 32px;
+}
+
+/* Carte individuelle d'une stat. */
+.carte-stat {
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 20px;
+  padding: 24px 18px;
+  box-shadow: 0 14px 36px rgba(17, 24, 39, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+/* Valeur numerique de la statistique. */
+.carte-stat strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--dark);
+  font-family: var(--title-font);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  line-height: 1;
+}
+
+/* Texte explicatif de la statistique. */
+.carte-stat span {
+  color: #5f6b7a;
+  font-weight: 500;
+}
+
+/* Grille responsive reutilisable pour les cartes. */
+.grille-cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+/* Apparence commune des cartes de freelances, blog et temoignages. */
+.carte-freelance,
+.carte-blog,
+.carte-temoignage {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.08);
+  transition: transform var(--transition), box-shadow var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+/* Effet de survol qui donne du relief aux cartes. */
+.carte-freelance:hover,
+.carte-blog:hover,
+.carte-temoignage:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 55px rgba(17, 24, 39, 0.14);
+}
+
+/* Les images de cartes prennent toute la largeur et gardent un bon cadrage. */
+.carte-freelance img,
+.carte-blog img,
+.carte-temoignage img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Les temoignages gardent un leger recentrage du visage,
+   tout en conservant exactement la meme hauteur que les autres cartes. */
+.carte-temoignage img {
+  object-position: center 22%;
+}
+
+/* Image principale du hero sur la page d'accueil. */
+.image-hero {
+  height: 420px;
+  object-fit: cover;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  box-shadow: 0 20px 50px rgba(17, 24, 39, 0.18);
+}
+
+/* Overlay sombre sur l'image du hero:
+   il sert surtout a rendre le texte blanc bien lisible. */
+.superposition-hero {
+  /* Se place au-dessus de l'image hero. */
+  position: absolute;
+  inset: 0;
+  /* Centre le bloc texte verticalement et horizontalement. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Evite que le texte colle aux bords sur petit ecran. */
+  padding: 32px 20px;
+  /* Degrade sombre pour rendre le texte bien lisible. */
+  background:
+    linear-gradient(90deg, rgba(17, 24, 39, 0.78) 0%, rgba(17, 24, 39, 0.5) 45%, rgba(17, 24, 39, 0.18) 100%);
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+}
+
+/* Bloc qui contient le texte pose sur l'image. */
+.contenu-hero-superpose {
+  width: min(100%, 760px);
+  text-align: center;
+  color: var(--white);
+}
+
+/* Petit badge au-dessus du titre dans le hero. */
+.accroche-hero {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #f9fafb;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(6px);
+}
+
+/* Titre principal sur l'image hero. */
+.contenu-hero-superpose h1 {
+  color: var(--white);
+  font-size: clamp(2.3rem, 5vw, 4.35rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+}
+
+/* Paragraphe du hero sur image. */
+.contenu-hero-superpose p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.05rem;
+}
+
+/* Hero des pages internes:
+   fond plus leger que le hero image, mais visuellement premium. */
+.hero-interne {
+  padding: 64px 0 72px;
+  background:
+    radial-gradient(circle at top left, rgba(108, 99, 255, 0.14), transparent 30%),
+    radial-gradient(circle at top right, rgba(255, 122, 24, 0.14), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(247, 248, 252, 0.82) 100%);
+  backdrop-filter: blur(10px);
+}
+
+/* Contenu centre des pages internes. */
+.contenu-hero-interne {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Grand titre des pages internes. */
+.contenu-hero-interne h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+
+/* Texte d'intro des pages internes. */
+.contenu-hero-interne p {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+/* Intro specifique a la page freelances:
+   ici on retire un peu d'espace en haut car le hero fait deja le travail visuel. */
+.directory-intro {
+  padding-top: 0;
+}
+
+/* Ces sections sont centrees pour garder une presentation plus editorial/premium. */
+.search-panel,
+.filter-section,
+.freelance-listing {
+  text-align: center;
+}
+
+/* Bloc de recherche principal de la page freelances. */
+.search-panel {
+  max-width: 980px;
+  margin: 0 auto 20px;
+}
+
+/* Barre de recherche stylisee comme un panneau premium. */
+.search-bar {
+  /* Flex pour aligner champ de recherche et boutons de filtre. */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  /* Padding interne du panneau. */
+  padding: 18px;
+  /* Fond legerement transparent pour garder la coherence du design. */
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* Zone gauche de la recherche:
+   icone + input. */
+.search-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 6px;
+}
+
+/* Icone dans le champ de recherche. */
+.search-field i {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+/* Input principal:
+   pas de bordure native pour garder un look plus propre. */
+.search-field input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--dark);
+  font-size: 1rem;
+}
+
+/* Conteneurs des boutons de tri / filtres. */
+.search-tools,
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Puces de filtres:
+   petits boutons pill reutilisables sur la page. */
+.filter-chip {
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--dark);
+  font-weight: 600;
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.06);
+  transition: transform var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+/* Petit espace entre l'icone et le texte du chip. */
+.filter-chip i {
+  margin-right: 8px;
+}
+
+/* Etat hover et actif d'un chip. */
+.filter-chip:hover,
+.filter-chip.active {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.12), rgba(255, 122, 24, 0.14));
+  color: var(--primary);
+  box-shadow: 0 16px 34px rgba(17, 24, 39, 0.1);
+}
+
+/* Espace sous la section des filtres. */
+.filter-section {
+  margin-bottom: 16px;
+}
+
+/* Ajustement du label de section dans le listing freelances. */
+.freelance-listing .etiquette-section {
+  margin-bottom: 10px;
+}
+
+/* Sections internes centrees sur plusieurs pages. */
+.about-story,
+.about-team,
+.values-section,
+.about-stats,
+.blog-section,
+.pricing-section,
+.contact-section {
+  text-align: center;
+}
+
+/* Certaines sections ont aussi une largeur maitrisee pour eviter des lignes trop longues. */
+.about-story,
+.blog-section,
+.pricing-section {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* Les cartes de l'equipe doivent rester bien alignees,
+   meme si le contenu texte varie legerement d'une personne a l'autre. */
+.about-team .carte-freelance {
+  height: 100%;
+}
+
+.about-team .corps-carte {
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Cadrage un peu plus haut pour mieux mettre les visages en valeur. */
+.about-team .carte-freelance img {
+  height: 260px;
+  object-position: center 18%;
+}
+
+/* Les cartes freelances de l'annuaire gardent une structure reguliere
+   pour que les profils restent bien alignes dans la grille. */
+.freelance-listing .carte-freelance {
+  height: 100%;
+}
+
+.freelance-listing .corps-carte {
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.freelance-listing .carte-freelance img {
+  height: 260px;
+  object-position: center 18%;
+}
+
+.freelance-listing .carte-freelance button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Petit espace au-dessus de la grille de valeurs. */
+.values-grid {
+  margin-top: 16px;
+}
+
+/* Cartes informatives reutilisables:
+   valeurs, tarifs, formulaire, bloc contact. */
+.info-card,
+.pricing-card,
+.contact-form,
+.contact-info {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+/* Titre de certaines cartes avec espacement controle. */
+.info-card h3,
+.pricing-card h3 {
+  margin-bottom: 12px;
+}
+
+/* Les cartes de pricing doivent avoir la meme hauteur visuelle. */
+.pricing-grid {
+  align-items: stretch;
+}
+
+/* Texte des cartes tarifaires centre. */
+.pricing-card {
+  text-align: center;
+}
+
+/* Badge icone dans les cartes tarifs. */
+.pricing-badge {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.14), rgba(255, 122, 24, 0.18));
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+/* Prix mis en avant avec une typographie forte. */
+.pricing-price {
+  margin-bottom: 18px;
+  color: var(--dark);
+  font-family: var(--title-font);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Liste d'avantages dans les cartes tarifs. */
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: grid;
+  gap: 12px;
+}
+
+/* Les icones des listes de tarifs prennent la couleur secondaire. */
+.pricing-card li i {
+  margin-right: 10px;
+  color: var(--secondary);
+}
+
+/* Carte "mise en avant" pour le plan principal. */
+.pricing-card-featured {
+  border: 1px solid rgba(108, 99, 255, 0.18);
+  box-shadow: 0 24px 52px rgba(108, 99, 255, 0.12);
+}
+
+/* Mise en page a deux colonnes pour la page contact. */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Bloc d'information de contact aligne a gauche pour plus de lisibilite. */
+.contact-info {
+  text-align: left;
+}
+
+/* Liste verticale des points de contact. */
+.contact-points {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+/* Supprime l'espace par defaut des paragraphes de contact. */
+.contact-points p {
+  margin: 0;
+}
+
+/* Couleur des icones dans le bloc contact. */
+.contact-points i {
+  color: var(--primary);
+  margin-right: 10px;
+}
+
+/* Formulaire de contact organise en grille verticale. */
+.contact-form {
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+
+/* Labels plus lisibles dans le formulaire. */
+.contact-form label {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* Champs du formulaire:
+   fond leger, bordure douce, coins arrondis. */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  border-radius: 16px;
+  padding: 14px 16px;
+  outline: none;
+  background: #fbfcfe;
+}
+
+/* Zone de texte plus haute et redimensionnable verticalement. */
+.contact-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* Le bouton du formulaire n'occupe pas toute la largeur sur desktop. */
+.contact-form .hero-btn {
+  width: auto;
+  justify-self: start;
+}
+
+/* Bandeau de confiance sous le hero. */
+.bandeau-confiance {
+  display: grid;
+  gap: 18px;
+  margin: -40px auto 32px;
+  padding: 24px 28px;
+  max-width: 980px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  border-radius: 24px;
+  box-shadow: 0 18px 44px rgba(17, 24, 39, 0.08);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+/* Phrase principale du bandeau. */
+.bandeau-confiance > span {
+  color: #4b5563;
+  font-weight: 600;
+}
+
+/* Alignement horizontal des "logos" textuels. */
+.logos-confiance {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Style visuel de chaque pastille/secteur. */
+.logos-confiance span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Sections principales de la home centrees. */
+.how-it-works,
+.categories,
+.section-temoignages,
+.section-cta {
+  text-align: center;
+}
+
+/* Marges entre sections pour donner plus d'air. */
+.how-it-works {
+  margin-bottom: 20px;
+}
+
+.categories {
+  margin-bottom: 20px;
+}
+
+.section-temoignages {
+  margin-bottom: 28px;
+}
+
+/* Cartes des sections "comment ca marche" et "categories". */
+.how-it-works article,
+.categories article {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 14px 35px rgba(17, 24, 39, 0.07);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+/* Relief au hover sur ces cartes. */
+.how-it-works article:hover,
+.categories article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(17, 24, 39, 0.12);
+}
+
+/* Mise en page des titres avec icones integrees. */
+.how-it-works h3,
+.categories h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Style des icones dans ces sections:
+   pastille, taille, couleur, degrades. */
+.how-it-works i,
+.categories i {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.14), rgba(255, 122, 24, 0.18));
+  color: var(--primary);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Grille responsive de la section "comment ca marche". */
+.how-it-works {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+/* Le titre prend toute la largeur de la grille. */
+.how-it-works h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 8px;
+}
+
+/* Meme chose pour les petits labels de section. */
+.how-it-works .etiquette-section,
+.categories .etiquette-section,
+.section-temoignages .etiquette-section {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-bottom: 0;
+}
+
+/* Grille responsive de la section categories. */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+/* Le titre prend toute la largeur de la grille categories. */
+.categories h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 8px;
+}
+
+/* Espace sous le titre des temoignages. */
+.testimonials-section h2 {
+  margin-bottom: 28px;
+}
+
+/* On annule la marge native du blockquote. */
+.carte-temoignage {
+  margin: 0;
+}
+
+/* Structure verticale du contenu texte dans un temoignage. */
+.carte-temoignage .corps-carte {
+  display: grid;
+  gap: 12px;
+}
+
+/* Supprime les marges parasites sur le texte des temoignages. */
+.carte-temoignage p {
+  margin: 0;
+}
+
+/* Auteur du temoignage mis en avant avec la couleur primaire. */
+.carte-temoignage footer {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Bloc final d'appel a l'action. */
+.section-cta {
+  max-width: 760px;
+  margin: 24px auto 0;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(255, 122, 24, 0.1));
+  border-radius: 28px;
+  padding: 56px 28px;
+}
+
+/* Titre du CTA final. */
+.section-cta h2 {
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  margin-bottom: 16px;
+}
+
+/* Paragraphe du CTA avec largeur limitee. */
+.section-cta p {
+  max-width: 620px;
+  margin: 0 auto 24px;
+  color: #556070;
+}
+
+/* Footer global:
+   fond travaille, halos decoratifs et structure premium. */
+.pied-site {
+  /* Espace entre le contenu principal et le footer. */
+  margin-top: 88px;
+  /* Padding haut/bas du footer. */
+  padding: 64px 0 28px;
+  /* Plusieurs couches pour un footer plus riche visuellement. */
+  background:
+    radial-gradient(circle at top left, rgba(108, 99, 255, 0.08), transparent 30%),
+    radial-gradient(circle at top right, rgba(255, 122, 24, 0.08), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.98) 100%);
+  border-top: 1px solid rgba(17, 24, 39, 0.08);
+  /* Permet de positionner les halos decoratifs. */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Halo decoratif en bas a droite. */
+.pied-site::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -120px auto;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.14), transparent 68%);
+  pointer-events: none;
+}
+
+/* Halo decoratif en haut a gauche. */
+.pied-site::after {
+  content: "";
+  position: absolute;
+  inset: -120px auto auto -80px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 122, 24, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+/* Partie haute du footer:
+   logo, phrase de marque, reseaux sociaux. */
+.haut-pied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+/* Texte descriptif sous le logo du footer. */
+.marque-pied p {
+  max-width: 520px;
+  margin: 14px 0 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #516072;
+}
+
+/* Ligne d'icones sociales. */
+.reseaux-pied {
+  display: flex;
+  gap: 12px;
+}
+
+/* Boutons sociaux ronds. */
+.reseaux-pied a {
+  /* Taille fixe pour obtenir un cercle parfait. */
+  width: 44px;
+  height: 44px;
+  /* Centre parfaitement l'icone dedans. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: var(--dark);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+  transition: transform var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+/* Hover des reseaux sociaux. */
+.reseaux-pied a:hover {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(108, 99, 255, 0.2);
+}
+
+/* Titre de colonne dans le footer. */
+.pied-site h4 {
+  margin-bottom: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--dark);
+}
+
+/* Style texte/lien general du footer. */
+.pied-site p,
+.pied-site li,
+.pied-site a {
+  color: #5f6b7a;
+  text-decoration: none;
+}
+
+/* Reglage fin sur le texte des colonnes du footer. */
+.pied-site .row p,
+.pied-site .row li,
+.pied-site .row a {
+  font-size: 0.97rem;
+  line-height: 1.8;
+}
+
+/* Espacement des paragraphes dans les colonnes. */
+.pied-site .row p {
+  margin-bottom: 10px;
+}
+
+/* Colonnes du footer au-dessus des effets decoratifs. */
+.pied-site .row > div {
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Espace lateral des colonnes. */
+.pied-site .col-md-3 {
+  padding-right: 22px;
+}
+
+/* Colonnes 2 a 4 legerement decalees pour une meilleure respiration. */
+.pied-site .col-md-3:not(:first-child) {
+  padding-left: 28px;
+}
+
+/* Fine ligne verticale entre colonnes du footer. */
+.pied-site .col-md-3:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(17, 24, 39, 0.08), transparent);
+}
+
+/* Liste du footer sans puce native. */
+.pied-site ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+/* Espacement entre liens verticaux du footer. */
+.pied-site li + li {
+  margin-top: 8px;
+}
+
+/* Les liens du footer sont alignes avec un petit point decoratif. */
+.pied-site ul li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-weight: 500;
+}
+
+/* Petit point/decorateur devant chaque lien de liste. */
+.pied-site ul li a::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.08);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+/* Animation du point au hover. */
+.pied-site ul li a:hover::before {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 6px rgba(108, 99, 255, 0.12);
+}
+
+/* Hover general des liens du footer. */
+.pied-site a:hover {
+  color: var(--primary);
+}
+
+/* Les lignes de contact a droite ressemblent a de petits badges informatifs. */
+.pied-site .col-md-3:last-child p {
+  /* Aligne icone et texte sur une meme ligne. */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* Aspect petit badge/panneau. */
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+/* Zone icone au debut de chaque ligne de contact. */
+.pied-site .col-md-3:last-child p::before {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.14), rgba(255, 122, 24, 0.16));
+  color: var(--primary);
+  font-family: "bootstrap-icons";
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+/* Icône email. */
+.pied-site .col-md-3:last-child p:nth-of-type(1)::before {
+  content: "\f32f";
+}
+
+/* Icône téléphone. */
+.pied-site .col-md-3:last-child p:nth-of-type(2)::before {
+  content: "\f5c1";
+}
+
+/* Icône localisation. */
+.pied-site .col-md-3:last-child p:nth-of-type(3)::before {
+  content: "\f3e8";
+}
+
+/* Ligne de separation avant le bas de footer. */
+.pied-site hr {
+  margin: 36px 0 20px;
+  color: rgba(17, 24, 39, 0.1);
+}
+
+/* Bas du footer:
+   copyright a gauche, liens legaux a droite. */
+.bas-pied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* Texte discret de copyright. */
+.bas-pied p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #7b8794;
+}
+
+/* Groupe de liens legaux. */
+.liens-bas-pied {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+/* Style des liens legaux. */
+.liens-bas-pied a {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #7b8794;
+  position: relative;
+}
+
+/* Petit underline anime au hover. */
+.liens-bas-pied a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0.6);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+/* Active le underline des liens legaux au hover. */
+.liens-bas-pied a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Padding interne standard des contenus de cartes. */
+.corps-carte {
+  padding: 22px;
+}
+
+/* Titre dans le corps d'une carte. */
+.corps-carte h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+/* Espacement entre paragraphes d'une carte. */
+.corps-carte p {
+  margin-bottom: 10px;
+}
+
+/* Couleur des icones a l'interieur des cartes. */
+.corps-carte i {
+  color: var(--secondary);
+  margin-right: 8px;
+}
+
+/* Espace avant les liens/boutons en fin de carte. */
+.corps-carte a,
+.corps-carte button {
+  margin-top: 10px;
+}
+
+/* Style des liens textes dans les cartes. */
+.corps-carte a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Hover des liens de cartes. */
+.corps-carte a:hover {
+  color: var(--secondary);
+}
+
+/* Bouton de contact dans les cartes freelances. */
+.carte-freelance button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* Hover du bouton de carte freelance. */
+.carte-freelance button:hover {
+  background: var(--secondary);
+}
+
+/* Etat initial des elements animes au scroll:
+   invisibles + legerement decales. */
+[data-reveal] {
+  /* L'element commence cache... */
+  opacity: 0;
+  /* ...et legerement plus bas que sa position finale. */
+  transform: translateY(26px);
+  /* Transition douce lorsque la classe is-visible sera ajoutee. */
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  /* Optimisation des performances d'animation. */
+  will-change: opacity, transform;
+}
+
+/* Etat visible quand l'element entre dans le viewport. */
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variantes d'animation laterale. */
+[data-reveal="left"] {
+  transform: translateX(-28px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(28px);
+}
+
+/* Etat final des animations laterales. */
+[data-reveal="left"].is-visible,
+[data-reveal="right"].is-visible {
+  transform: translateX(0);
+}
+
+/* Animation utilisee dans les heroes. */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
