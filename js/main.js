@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Elements globaux reutilises par les interactions communes du site.
   const body = document.body;
   const navbar = document.querySelector(".navbar");
   const themeToggle = document.getElementById("themeToggle");
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const freelanceCards = document.querySelectorAll(".freelance-listing .col-12");
   const contactForm = document.querySelector(".contact-form");
 
+  // Applique le theme choisi et synchronise l'icone du bouton dark/light mode.
   function applyTheme(theme) {
     const isDark = theme === "dark";
     body.classList.toggle("theme-dark", isDark);
@@ -29,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", theme);
   }
 
+  // Met a jour les effets lies au scroll : navbar compacte et bouton retour en haut.
   function updateScrollEffects() {
     const hasScrolled = window.scrollY > 80;
 
@@ -41,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Convertit le texte d'un compteur ("2 500+", "10k") en valeur numerique animable.
   function parseCounterValue(text) {
     const normalized = text.trim().toLowerCase().replace(/\s/g, "");
     const hasPlus = normalized.includes("+");
@@ -55,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
+  // Reformate la valeur animee pour conserver le format d'origine du compteur.
   function formatCounterValue(value, options) {
     if (options.usesK) {
       return `${Math.round(value / 1000)}k${options.hasPlus ? "+" : ""}`;
@@ -63,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${Math.round(value).toLocaleString("fr-FR")}${options.hasPlus ? "+" : ""}`;
   }
 
+  // Anime un compteur une seule fois lorsqu'il entre dans le viewport.
   function animateCounter(counter) {
     if (counter.dataset.animated === "true") {
       return;
@@ -86,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(tick);
   }
 
+  // Filtre les cartes freelances par categorie sans recharger la page.
   function initFreelanceFilters() {
     if (!filterButtons.length || !freelanceCards.length) {
       return;
@@ -108,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Cree, si besoin, le conteneur de message d'erreur sous un champ.
   function createFieldMessage(field) {
     let message = field.nextElementSibling;
 
@@ -120,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return message;
   }
 
+  // Affiche l'etat visuel valide/invalide d'un champ de formulaire.
   function setFieldState(field, message) {
     const fieldMessage = createFieldMessage(field);
     const hasError = Boolean(message);
@@ -130,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fieldMessage.classList.toggle("is-visible", hasError);
   }
 
+  // Controle un champ du formulaire : requis, email valide et message assez long.
   function validateContactField(field) {
     const value = field.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -149,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return "";
   }
 
+  // Gere la validation complete du formulaire de contact et le message de succes.
   function initContactValidation() {
     if (!contactForm) {
       return;
@@ -198,21 +209,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Initialisation immediate des fonctionnalites globales.
   const savedTheme = localStorage.getItem("theme") || "light";
   applyTheme(savedTheme);
   updateScrollEffects();
   initFreelanceFilters();
   initContactValidation();
 
+  // Prepare les elements qui apparaitront en fade-in au scroll.
   revealItems.forEach((item) => {
     item.setAttribute("data-reveal", "");
   });
 
+  // Prepare les compteurs avant leur animation.
   counters.forEach((counter) => {
     counter.dataset.counterValue = counter.textContent.trim();
     counter.textContent = "0";
   });
 
+  // IntersectionObserver declenche les fade-in et les compteurs au bon moment.
   if ("IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
@@ -240,10 +255,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     counters.forEach((counter) => counterObserver.observe(counter));
   } else {
+    // Fallback simple pour les anciens navigateurs.
     revealItems.forEach((item) => item.classList.add("is-visible"));
     counters.forEach((counter) => animateCounter(counter));
   }
 
+  // Bouton de bascule du theme, avec persistance via localStorage.
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
       const nextTheme = body.classList.contains("theme-dark") ? "light" : "dark";
@@ -251,6 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Retour fluide en haut de page.
   if (backToTop) {
     backToTop.addEventListener("click", () => {
       window.scrollTo({
@@ -260,5 +278,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Ecoute du scroll pour les effets de navigation.
   window.addEventListener("scroll", updateScrollEffects);
 });

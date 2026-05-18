@@ -188,6 +188,7 @@ img{
  padding: 0;
 }
 
+/* Bouton flottant affiche au scroll pour revenir rapidement en haut. */
 .back-to-top{
  position: fixed;
  right: 22px;
@@ -672,6 +673,7 @@ main.container::before{
  box-shadow: 0 16px 34px rgba(17, 24, 39, 0.1);
 }
 
+/* Classe appliquee par le JS pour masquer les freelances hors categorie. */
 .freelance-listing .is-filtered-out{
  display: none;
 }
@@ -843,6 +845,7 @@ main.container::before{
  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.08);
 }
 
+/* Etats de validation ajoutes dynamiquement par le JS du formulaire contact. */
 .contact-form input.is-valid,
 .contact-form select.is-valid,
 .contact-form textarea.is-valid{
@@ -850,6 +853,7 @@ main.container::before{
  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.08);
 }
 
+/* Message d'erreur injecte sous chaque champ invalide. */
 .field-message{
  display: none;
  margin: -6px 0 6px;
@@ -862,6 +866,7 @@ main.container::before{
  display: block;
 }
 
+/* Message affiche apres une soumission valide du formulaire. */
 .form-success{
  display: none;
  margin: 4px 0 0;
@@ -1380,6 +1385,7 @@ main.container::before{
  background: var(--secondary);
 }
 
+/* Theme sombre persistant active par body.theme-dark. */
 body.theme-dark{
  color: #e5e7eb;
  background:
@@ -1649,6 +1655,7 @@ body.theme-dark .pied-site hr{
  color: rgba(255, 255, 255, 0.18);
 }
 
+/* Animation fade-in declenchee avec IntersectionObserver. */
 [data-reveal]{
  opacity: 0;
  transform: translateY(28px);
