@@ -112,11 +112,11 @@
       <div class="etiquette-section">Categories</div>
       <h2>Filtrer par specialite</h2>
       <div class="filter-chips">
-        <button class="filter-chip active">Tous</button>
-        <button class="filter-chip">Developpement Web</button>
-        <button class="filter-chip">Design</button>
-        <button class="filter-chip">Marketing</button>
-        <button class="filter-chip">Data</button>
+        <button class="filter-chip active" type="button" data-filter="all">Tous</button>
+        <button class="filter-chip" type="button" data-filter="developpement">Developpement Web</button>
+        <button class="filter-chip" type="button" data-filter="design">Design</button>
+        <button class="filter-chip" type="button" data-filter="marketing">Marketing</button>
+        <button class="filter-chip" type="button" data-filter="data">Data</button>
       </div>
     </section>
 
@@ -128,10 +128,11 @@
            1 carte sur mobile, 2 sur tablette et 3 sur desktop. -->
       <div class="row g-4 justify-content-center">
         <div class="col-12 col-md-6 col-lg-4">
-          <article class="carte-freelance">
+          <article class="carte-freelance" data-category="developpement">
             <img src="images/freelancer1.jpg" class="img-fluid" alt="Seydina Limamou Sow">
             <div class="corps-carte">
               <h3>Seydina Limamou Sow</h3>
+              <p><i class="bi bi-code-slash"></i>Developpement Web</p>
               <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
               <p><i class="bi bi-briefcase"></i>32 missions</p>
               <p><i class="bi bi-star-fill"></i>4.9/5</p>
@@ -141,10 +142,11 @@
         </div>
 
         <div class="col-12 col-md-6 col-lg-4">
-          <article class="carte-freelance">
+          <article class="carte-freelance" data-category="design">
             <img src="images/freelancer2.jpg" class="img-fluid" alt="Diegou Laye Sow">
             <div class="corps-carte">
               <h3>Diegou Laye Sow</h3>
+              <p><i class="bi bi-palette"></i>Design</p>
               <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
               <p><i class="bi bi-briefcase"></i>32 missions</p>
               <p><i class="bi bi-star-fill"></i>4.9/5</p>
@@ -154,10 +156,11 @@
         </div>
 
         <div class="col-12 col-md-6 col-lg-4">
-          <article class="carte-freelance">
+          <article class="carte-freelance" data-category="marketing">
             <img src="images/freelancer3.jpg" class="img-fluid" alt="Mamadou Sow">
             <div class="corps-carte">
               <h3>Mamadou Sow</h3>
+              <p><i class="bi bi-megaphone"></i>Marketing</p>
               <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
               <p><i class="bi bi-briefcase"></i>32 missions</p>
               <p><i class="bi bi-star-fill"></i>4.9/5</p>
@@ -167,10 +170,11 @@
         </div>
 
         <div class="col-12 col-md-6 col-lg-4">
-          <article class="carte-freelance">
+          <article class="carte-freelance" data-category="data">
             <img src="images/equipe4.jpg" class="img-fluid" alt="Mouhamed Sow">
             <div class="corps-carte">
               <h3>Mouhamed Sow</h3>
+              <p><i class="bi bi-bar-chart"></i>Data</p>
               <p><i class="bi bi-geo-alt"></i>Dakar, Senegal</p>
               <p><i class="bi bi-briefcase"></i>32 missions</p>
               <p><i class="bi bi-star-fill"></i>4.9/5</p>

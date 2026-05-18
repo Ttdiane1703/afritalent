@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.getElementById("backToTop");
   const revealItems = document.querySelectorAll("main section, footer");
   const counters = document.querySelectorAll(".carte-stat strong");
+  const filterButtons = document.querySelectorAll(".filter-section [data-filter]");
+  const freelanceCards = document.querySelectorAll(".freelance-listing .col-12");
+  const contactForm = document.querySelector(".contact-form");
 
   function applyTheme(theme) {
     const isDark = theme === "dark";
@@ -83,9 +86,123 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(tick);
   }
 
+  function initFreelanceFilters() {
+    if (!filterButtons.length || !freelanceCards.length) {
+      return;
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selectedCategory = button.dataset.filter;
+
+        filterButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+
+        freelanceCards.forEach((column) => {
+          const card = column.querySelector(".carte-freelance");
+          const cardCategory = card ? card.dataset.category : "";
+          const isVisible = selectedCategory === "all" || cardCategory === selectedCategory;
+          column.classList.toggle("is-filtered-out", !isVisible);
+        });
+      });
+    });
+  }
+
+  function createFieldMessage(field) {
+    let message = field.nextElementSibling;
+
+    if (!message || !message.classList.contains("field-message")) {
+      message = document.createElement("p");
+      message.className = "field-message";
+      field.insertAdjacentElement("afterend", message);
+    }
+
+    return message;
+  }
+
+  function setFieldState(field, message) {
+    const fieldMessage = createFieldMessage(field);
+    const hasError = Boolean(message);
+
+    field.classList.toggle("is-invalid", hasError);
+    field.classList.toggle("is-valid", !hasError && field.value.trim() !== "");
+    fieldMessage.textContent = message;
+    fieldMessage.classList.toggle("is-visible", hasError);
+  }
+
+  function validateContactField(field) {
+    const value = field.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    if (!value) {
+      return "Ce champ est requis.";
+    }
+
+    if (field.type === "email" && !emailRegex.test(value)) {
+      return "Veuillez saisir une adresse email valide.";
+    }
+
+    if (field.id === "message" && value.length < 20) {
+      return "Le message doit contenir au moins 20 caracteres.";
+    }
+
+    return "";
+  }
+
+  function initContactValidation() {
+    if (!contactForm) {
+      return;
+    }
+
+    const fields = contactForm.querySelectorAll("input, select, textarea");
+    const successMessage = document.createElement("p");
+    successMessage.className = "form-success";
+    successMessage.textContent = "Votre message a bien ete envoye. Merci pour votre prise de contact.";
+    contactForm.appendChild(successMessage);
+
+    fields.forEach((field) => {
+      createFieldMessage(field);
+      field.addEventListener("input", () => {
+        setFieldState(field, validateContactField(field));
+        successMessage.classList.remove("is-visible");
+      });
+      field.addEventListener("change", () => {
+        setFieldState(field, validateContactField(field));
+        successMessage.classList.remove("is-visible");
+      });
+    });
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      let isFormValid = true;
+
+      fields.forEach((field) => {
+        const errorMessage = validateContactField(field);
+        setFieldState(field, errorMessage);
+
+        if (errorMessage) {
+          isFormValid = false;
+        }
+      });
+
+      if (isFormValid) {
+        successMessage.classList.add("is-visible");
+        contactForm.reset();
+        fields.forEach((field) => {
+          field.classList.remove("is-valid", "is-invalid");
+        });
+      } else {
+        successMessage.classList.remove("is-visible");
+      }
+    });
+  }
+
   const savedTheme = localStorage.getItem("theme") || "light";
   applyTheme(savedTheme);
   updateScrollEffects();
+  initFreelanceFilters();
+  initContactValidation();
 
   revealItems.forEach((item) => {
     item.setAttribute("data-reveal", "");

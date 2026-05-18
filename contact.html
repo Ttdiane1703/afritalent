@@ -79,25 +79,26 @@
         </div>
 
         <!-- Formulaire de prise de contact -->
-        <form class="contact-form">
+        <form class="contact-form" novalidate>
           <label for="nom">Nom</label>
-          <input id="nom" type="text">
+          <input id="nom" name="nom" type="text" required>
 
           <label for="prenom">Prenom</label>
-          <input id="prenom" type="text">
+          <input id="prenom" name="prenom" type="text" required>
 
           <label for="email">Email</label>
-          <input id="email" type="email">
+          <input id="email" name="email" type="email" required>
 
           <label for="sujet">Sujet</label>
-          <select id="sujet">
+          <select id="sujet" name="sujet" required>
+            <option value="">Choisir un sujet</option>
             <option>Support</option>
             <option>Partenariat</option>
             <option>Information</option>
           </select>
 
           <label for="message">Message</label>
-          <textarea id="message"></textarea>
+          <textarea id="message" name="message" required></textarea>
 
           <button class="bouton-hero bouton-hero-primaire" type="submit">Envoyer</button>
         </form>

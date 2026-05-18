@@ -672,6 +672,10 @@ main.container::before{
  box-shadow: 0 16px 34px rgba(17, 24, 39, 0.1);
 }
 
+.freelance-listing .is-filtered-out{
+ display: none;
+}
+
 .filter-section{
  margin-bottom: 16px;
 }
@@ -830,6 +834,46 @@ main.container::before{
  padding: 14px 16px;
  outline: none;
  background: #fbfcfe;
+}
+
+.contact-form input.is-invalid,
+.contact-form select.is-invalid,
+.contact-form textarea.is-invalid{
+ border-color: #dc2626;
+ box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.08);
+}
+
+.contact-form input.is-valid,
+.contact-form select.is-valid,
+.contact-form textarea.is-valid{
+ border-color: #16a34a;
+ box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.08);
+}
+
+.field-message{
+ display: none;
+ margin: -6px 0 6px;
+ color: #dc2626;
+ font-size: 0.9rem;
+ font-weight: 600;
+}
+
+.field-message.is-visible{
+ display: block;
+}
+
+.form-success{
+ display: none;
+ margin: 4px 0 0;
+ padding: 14px 16px;
+ border-radius: 16px;
+ background: rgba(22, 163, 74, 0.12);
+ color: #15803d;
+ font-weight: 700;
+}
+
+.form-success.is-visible{
+ display: block;
 }
 
 .contact-form textarea{
@@ -1493,6 +1537,15 @@ body.theme-dark .contact-form input::placeholder,
 body.theme-dark .contact-form textarea::placeholder,
 body.theme-dark .form-control::placeholder{
  color: #9ca3af !important;
+}
+
+body.theme-dark .field-message{
+ color: #fca5a5;
+}
+
+body.theme-dark .form-success{
+ background: rgba(34, 197, 94, 0.16);
+ color: #bbf7d0;
 }
 
 body.theme-dark .carousel-control-prev,
