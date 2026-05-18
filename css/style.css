@@ -1,1671 +1,1746 @@
-/* Importe les polices utilisees sur tout le site. */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Inter:wght@300;400;500&display=swap');
 
-/* Variables globales:
-   ici on centralise les couleurs, polices et valeurs reutilisables.
-   Si tu modifies une variable ici, tout le site sera mis a jour. */
-:root {
-  /* Couleurs principales de la marque. */
-  --primary: #6C63FF;
-  --secondary: #FF7A18;
-  --dark: #111827;
-  --light: #F9FAFB;
-  --text: #374151;
-  --white: #ffffff;
-
-  /* Polices principales:
-     Poppins pour les titres, Inter pour le texte courant. */
-  --title-font: 'Poppins', sans-serif;
-  --body-font: 'Inter', sans-serif;
-
-  /* Valeurs utilitaires:
-     rayon de bordure et duree de transition. */
-  --radius: 14px;
-  --transition: 0.3s ease;
+:root{
+ --primary: #6C63FF;
+ --secondary: #FF7A18;
+ --dark: #111827;
+ --light: #F9FAFB;
+ --text: #374151;
+ --white: #ffffff;
+ --title-font: 'Poppins', sans-serif;
+ --body-font: 'Inter', sans-serif;
+ --radius: 14px;
+ --transition: 0.3s ease;
 }
 
-/* Reset de base:
-   on supprime les marges/paddings par defaut du navigateur
-   pour repartir sur une base propre. */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
 }
 
-/* Style global du body:
-   - police de base
-   - couleurs du texte
-   - fond premium compose de plusieurs degrades
-   - on evite le scroll horizontal parasite */
-body {
-  /* Police par defaut du site pour les textes courants. */
-  font-family: var(--body-font);
-  /* Couleur principale du texte. */
-  color: var(--text);
-  /* Fond multicouche:
-     chaque ligne ajoute un halo ou un degrade pour donner de la profondeur. */
-  background:
-    radial-gradient(circle at 0% 0%, rgba(108, 99, 255, 0.12), transparent 26%),
-    radial-gradient(circle at 100% 0%, rgba(255, 122, 24, 0.11), transparent 24%),
-    radial-gradient(circle at 50% 100%, rgba(17, 24, 39, 0.05), transparent 30%),
-    linear-gradient(180deg, #f8fbff 0%, #f5f7fb 42%, #eef3f9 100%);
-  /* Espace vertical entre les lignes de texte. */
-  line-height: 1.6;
-  /* Le body prend au moins toute la hauteur de l'ecran. */
-  min-height: 100vh;
-  /* Sert de base a certains pseudo-elements decoratifs. */
-  position: relative;
-  /* Coupe les debordements horizontaux. */
-  overflow-x: hidden;
+body{
+ font-family: var(--body-font);
+ color: var(--text);
+ background:
+ radial-gradient(circle at 0% 0%, rgba(108, 99, 255, 0.12), transparent 26%),
+ radial-gradient(circle at 100% 0%, rgba(255, 122, 24, 0.11), transparent 24%),
+ radial-gradient(circle at 50% 100%, rgba(17, 24, 39, 0.05), transparent 30%),
+ linear-gradient(180deg, #f8fbff 0%, #f5f7fb 42%, #eef3f9 100%);
+ line-height: 1.6;
+ min-height: 100vh;
+ position: relative;
+ overflow-x: hidden;
+ padding-top: 88px;
 }
 
-/* Motif decoratif fixe au-dessus du fond:
-   cela ajoute une grille tres legere pour donner un effet plus haut de gamme. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  /* Deux gradients lineaires formes une grille tres legere. */
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
-  /* Taille d'une "case" de la grille. */
-  background-size: 64px 64px;
-  /* Le mask rend la grille plus visible au centre qu'aux bords. */
-  mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
-  opacity: 0.3;
-  z-index: -2;
+body::before{
+ content: "";
+ position: fixed;
+ inset: 0;
+ pointer-events: none;
+ background-image:
+ linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+ background-size: 64px 64px;
+ mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+ opacity: 0.3;
+ z-index: -2;
 }
 
-/* Deuxieme couche decorative:
-   des halos flous colores qui enrichissent visuellement l'arriere-plan. */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(108, 99, 255, 0.08), transparent 18%),
-    radial-gradient(circle at 80% 30%, rgba(255, 122, 24, 0.08), transparent 18%),
-    radial-gradient(circle at 50% 80%, rgba(17, 24, 39, 0.05), transparent 22%);
-  filter: blur(18px);
-  z-index: -3;
+body::after{
+ content: "";
+ position: fixed;
+ inset: 0;
+ pointer-events: none;
+ background:
+ radial-gradient(circle at 20% 20%, rgba(108, 99, 255, 0.08), transparent 18%),
+ radial-gradient(circle at 80% 30%, rgba(255, 122, 24, 0.08), transparent 18%),
+ radial-gradient(circle at 50% 80%, rgba(17, 24, 39, 0.05), transparent 22%);
+ filter: blur(18px);
+ z-index: -3;
 }
 
-/* Tous les titres utilisent la police de titre et la couleur foncee. */
-h1, h2, h3, h4 {
-  font-family: var(--title-font);
-  color: var(--dark);
+h1, h2, h3, h4{
+ font-family: var(--title-font);
+ color: var(--dark);
 }
 
-/* Espacement vertical par defaut entre les sections. */
-section {
-  padding: 80px 0;
+section{
+ padding: 80px 0;
 }
 
-/* Taille responsive des titres h2:
-   clamp() permet une taille qui s'adapte selon la largeur d'ecran. */
-h2 {
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
-  margin-bottom: 18px;
+h2{
+ font-size: clamp(1.8rem, 3vw, 2.7rem);
+ margin-bottom: 18px;
 }
 
-/* Style de base des paragraphes. */
-p {
-  font-size: 1rem;
-  color: #5b6472;
+p{
+ font-size: 1rem;
+ color: #5b6472;
 }
 
-/* Regle generique pour les images:
-   elles restent dans leur conteneur et deviennent des blocs. */
-img {
-  max-width: 100%;
-  display: block;
-
+img{
+ max-width: 100%;
+ display: block;
 }
 
-/* Conteneur principal du site:
-   limite la largeur maximale du contenu. */
-.container {
-  max-width: 1200px;
+.container{
+ max-width: 1200px;
 }
 
-/* NAVBAR:
-   barre de navigation fixe en haut, effet glassmorphism, ombre et flou. */
-.navbar {
-  /* Fond semi-transparent pour l'effet glass. */
-  background: rgba(255, 255, 255, 0.82);
-  /* Espace vertical dans la barre. */
-  padding: 16px 0;
-  transition: var(--transition);
-  /* Fixe la navbar en haut pendant le scroll. */
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  /* Floute ce qu'il y a derriere. */
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.07);
+.navbar{
+ background: rgba(255, 255, 255, 0.82);
+ padding: 16px 0;
+ transition: var(--transition);
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ width: 100%;
+ z-index: 2;
+ backdrop-filter: blur(16px);
+ border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+ box-shadow: 0 14px 34px rgba(17, 24, 39, 0.07);
 }
 
-/* Ajoute un espace en haut de la page pour compenser la navbar fixe. */
-body {
-  padding-top: 88px;
+.navbar.navbar-scrolled{
+ padding: 9px 0;
+ background: rgba(255, 255, 255, 0.96);
+ box-shadow: 0 18px 42px rgba(17, 24, 39, 0.15);
 }
 
-/* Style du logo dans la navbar. */
-.navbar-brand {
-  font-family: var(--title-font);
-  font-weight: 700;
-  font-size: 24px;
-  color: var(--primary) !important;
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 0;
+.navbar.navbar-scrolled .navbar-brand img{
+ width: 128px;
 }
 
-/* Style des liens de navigation:
-   forme pill, bon alignement, animation douce au survol. */
-.nav-link {
-  /* Reference pour le trait anime ::after. */
-  position: relative;
-  /* Permet de centrer le texte comme dans un mini bouton. */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  /* Zone de clic plus confortable. */
-  min-height: 42px;
-  padding: 8px 14px !important;
-  margin-left: 8px;
-  border-radius: 999px;
-  font-weight: 500;
-  color: var(--dark) !important;
-  transition: color var(--transition), background var(--transition), transform var(--transition);
+.navbar-brand{
+ font-family: var(--title-font);
+ font-weight: 700;
+ font-size: 24px;
+ color: var(--primary) !important;
+ display: inline-flex;
+ align-items: center;
+ padding: 6px 0;
 }
 
-/* Effet au survol d'un lien de navigation. */
-.nav-link:hover {
-  color: var(--primary) !important;
-  background: rgba(108, 99, 255, 0.08);
-  transform: translateY(-1px);
+.navbar-brand img{
+ transition: width var(--transition), transform var(--transition);
 }
 
-/* Petit trait decoratif anime sous chaque lien au hover. */
-.nav-link::after {
-  content: "";
-  position: absolute;
-  /* Le trait laisse un peu de marge a gauche et a droite. */
-  left: 14px;
-  right: 14px;
-  /* Place sous le texte. */
-  bottom: 6px;
-  /* Epaisseur du trait. */
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  /* Cache le trait au depart. */
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform var(--transition);
+.nav-link{
+ position: relative;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ min-height: 42px;
+ padding: 8px 14px !important;
+ margin-left: 8px;
+ border-radius: 999px;
+ font-weight: 500;
+ color: var(--dark) !important;
+ transition: color var(--transition), background var(--transition), transform var(--transition);
 }
 
-/* Active le trait decoratif au survol. */
-.nav-link:hover::after {
-  transform: scaleX(1);
+.nav-link:hover{
+ color: var(--primary) !important;
+ background: rgba(108, 99, 255, 0.08);
+ transform: translateY(-1px);
 }
 
-/* Style du bouton hamburger sur mobile. */
-.navbar-toggler {
-  border: 1px solid rgba(17, 24, 39, 0.08);
-  border-radius: 14px;
-  padding: 8px 10px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+.nav-link::after{
+ content: "";
+ position: absolute;
+ left: 14px;
+ right: 14px;
+ bottom: 6px;
+ height: 2px;
+ border-radius: 999px;
+ background: linear-gradient(90deg, var(--primary), var(--secondary));
+ transform: scaleX(0);
+ transform-origin: center;
+ transition: transform var(--transition);
 }
 
-/* Halo visible quand le bouton hamburger est focus. */
-.navbar-toggler:focus {
-  box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.15);
+.nav-link:hover::after{
+ transform: scaleX(1);
 }
 
-/* Ancien style bootstrap primaire,
-   encore utile si certains boutons utilisent .btn-primary. */
-.btn-primary {
-  background: var(--primary);
-  border: none;
-  padding: 10px 20px;
-  border-radius: var(--radius);
-  transition: var(--transition);
+.navbar-toggler{
+ border: 1px solid rgba(17, 24, 39, 0.08);
+ border-radius: 14px;
+ padding: 8px 10px;
+ background: rgba(255, 255, 255, 0.9);
+ box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
 }
 
-.btn-primary:hover {
-  background: var(--secondary);
-}
-/* Zone principale des pages:
-   on garde du padding et un pseudo-element decoratif tres leger. */
-main.container {
-  padding: 48px 16px 80px;
-  position: relative;
+.navbar-toggler:focus{
+ box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.15);
 }
 
-main.container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.55), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.35), transparent 24%);
-  z-index: -1;
+.theme-toggle{
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 42px;
+ height: 42px;
+ border-radius: 999px;
+ padding: 0;
 }
 
-/* Le header hero sert de reference pour les elements en position relative/absolute. */
-.entete-hero {
-  position: relative;
+.back-to-top{
+ position: fixed;
+ right: 22px;
+ bottom: 22px;
+ width: 48px;
+ height: 48px;
+ border: none;
+ border-radius: 999px;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ background: var(--primary);
+ color: var(--white);
+ box-shadow: 0 18px 36px rgba(17, 24, 39, 0.18);
+ opacity: 0;
+ visibility: hidden;
+ transform: translateY(14px);
+ transition: opacity var(--transition), visibility var(--transition), transform var(--transition), background var(--transition);
+ z-index: 10;
 }
 
-/* Conteneur media du hero pour placer du texte par-dessus l'image. */
-.media-hero {
-  position: relative;
+.back-to-top.is-visible{
+ opacity: 1;
+ visibility: visible;
+ transform: translateY(0);
 }
 
-/* Intro juste sous le hero de la page d'accueil. */
-.section-hero {
-  padding-top: 32px;
-  padding-bottom: 96px;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
+.back-to-top:hover{
+ background: var(--secondary);
+ transform: translateY(-3px);
 }
 
-/* Petit label de section:
-   sert a introduire une section avec un style plus editorial/premium. */
-.etiquette-section {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(108, 99, 255, 0.08);
-  color: var(--primary);
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+.btn-primary{
+ background: var(--primary);
+ border: none;
+ padding: 10px 20px;
+ border-radius: var(--radius);
+ transition: var(--transition);
 }
 
-/* Sous-titre principal de la section hero. */
-.section-hero h2 {
-  max-width: 760px;
-  margin: 0 auto 18px;
-  font-size: clamp(1.15rem, 2.3vw, 1.65rem);
-  color: #4b5563;
-  font-weight: 500;
+.btn-primary:hover{
+ background: var(--secondary);
 }
 
-/* Cible seulement le premier paragraphe direct du hero-section. */
-.section-hero > p:first-of-type {
-  max-width: 760px;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  color: #5b6472;
+main.container{
+ padding: 48px 16px 80px;
+ position: relative;
 }
 
-/* Groupe de boutons dans les sections hero. */
-.actions-hero {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin: 28px 0 24px;
-  justify-content: center;
+main.container::before{
+ content: "";
+ position: absolute;
+ inset: 0;
+ pointer-events: none;
+ background:
+ radial-gradient(circle at top left, rgba(255, 255, 255, 0.55), transparent 24%),
+ radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.35), transparent 24%);
+ z-index: -1;
 }
 
-/* Base commune de tous les gros boutons CTA. */
-.bouton-hero {
-  border: none;
-  border-radius: 999px;
-  padding: 14px 24px;
-  font-weight: 700;
-  font-family: var(--title-font);
-  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+.entete-hero{
+ position: relative;
 }
 
-/* Petit mouvement vertical au survol. */
-.bouton-hero:hover {
-  transform: translateY(-3px);
+.media-hero{
+ position: relative;
 }
 
-/* Animation d'entree des enfants du hero sur l'image de la page d'accueil. */
-.contenu-hero-superpose > * {
-  opacity: 0;
-  transform: translateY(22px);
-  animation: heroReveal 0.8s ease forwards;
+.section-hero{
+ padding-top: 32px;
+ padding-bottom: 96px;
+ text-align: center;
+ max-width: 900px;
+ margin: 0 auto;
 }
 
-/* On decale chaque element pour creer un effet d'apparition en cascade. */
-.contenu-hero-superpose > *:nth-child(1) {
-  animation-delay: 0.08s;
+.etiquette-section{
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ padding: 8px 14px;
+ border-radius: 999px;
+ background: rgba(108, 99, 255, 0.08);
+ color: var(--primary);
+ font-size: 0.88rem;
+ font-weight: 700;
+ letter-spacing: 0.03em;
+ text-transform: uppercase;
+ margin-bottom: 16px;
 }
 
-.contenu-hero-superpose > *:nth-child(2) {
-  animation-delay: 0.16s;
+.section-hero h2{
+ max-width: 760px;
+ margin: 0 auto 18px;
+ font-size: clamp(1.15rem, 2.3vw, 1.65rem);
+ color: #4b5563;
+ font-weight: 500;
 }
 
-.contenu-hero-superpose > *:nth-child(3) {
-  animation-delay: 0.24s;
+.section-hero > p:first-of-type{
+ max-width: 760px;
+ margin: 0 auto;
+ font-size: 1.05rem;
+ color: #5b6472;
 }
 
-.contenu-hero-superpose > *:nth-child(4) {
-  animation-delay: 0.32s;
+.actions-hero{
+ display: flex;
+ flex-wrap: wrap;
+ gap: 14px;
+ margin: 28px 0 24px;
+ justify-content: center;
 }
 
-/* Meme logique d'animation pour les autres heroes de pages internes. */
-.contenu-hero-interne > * {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: heroReveal 0.8s ease forwards;
+.bouton-hero{
+ border: none;
+ border-radius: 999px;
+ padding: 14px 24px;
+ font-weight: 700;
+ font-family: var(--title-font);
+ transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
 }
 
-/* Delais progressifs pour les blocs internes. */
-.contenu-hero-interne > *:nth-child(1) {
-  animation-delay: 0.08s;
+.bouton-hero:hover{
+ transform: translateY(-3px);
 }
 
-.contenu-hero-interne > *:nth-child(2) {
-  animation-delay: 0.16s;
+.contenu-hero-superpose > *{
+ opacity: 0;
+ transform: translateY(22px);
+ animation: heroReveal 0.8s ease forwards;
 }
 
-.contenu-hero-interne > *:nth-child(3) {
-  animation-delay: 0.24s;
+
+.bouton-hero-primaire{
+ background: linear-gradient(135deg, var(--primary), #8a7dff);
+ color: var(--white);
+ box-shadow: 0 16px 30px rgba(108, 99, 255, 0.28);
 }
 
-/* Bouton principal:
-   couleur forte + ombre plus visible. */
-.bouton-hero-primaire {
-  background: linear-gradient(135deg, var(--primary), #8a7dff);
-  color: var(--white);
-  box-shadow: 0 16px 30px rgba(108, 99, 255, 0.28);
+.bouton-hero-primaire:hover{
+ box-shadow: 0 22px 38px rgba(108, 99, 255, 0.34);
 }
 
-/* Renforce l'ombre au hover. */
-.bouton-hero-primaire:hover {
-  box-shadow: 0 22px 38px rgba(108, 99, 255, 0.34);
+.bouton-hero-secondaire{
+ background: var(--white);
+ color: var(--dark);
+ border: 1px solid rgba(17, 24, 39, 0.08);
+ box-shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
 }
 
-/* Bouton secondaire:
-   plus neutre, en blanc, pour creer une hierarchie avec le principal. */
-.bouton-hero-secondaire {
-  background: var(--white);
-  color: var(--dark);
-  border: 1px solid rgba(17, 24, 39, 0.08);
-  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
+.bouton-hero-secondaire:hover{
+ background: #fff7f0;
+ color: var(--secondary);
+ box-shadow: 0 18px 34px rgba(255, 122, 24, 0.16);
 }
 
-/* Hover du bouton secondaire:
-   leger rappel de la couleur secondaire. */
-.bouton-hero-secondaire:hover {
-  background: #fff7f0;
-  color: var(--secondary);
-  box-shadow: 0 18px 34px rgba(255, 122, 24, 0.16);
+.statistiques-hero{
+ display: grid;
+ grid-template-columns: repeat(3, minmax(0, 1fr));
+ gap: 18px;
+ margin-top: 32px;
 }
 
-/* Cartes de chiffres/statistiques. */
-.statistiques-hero {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 32px;
+.carte-stat{
+ background: rgba(255, 255, 255, 0.88);
+ border-radius: 20px;
+ padding: 24px 18px;
+ box-shadow: 0 14px 36px rgba(17, 24, 39, 0.08);
+ backdrop-filter: blur(10px);
 }
 
-/* Carte individuelle d'une stat. */
-.carte-stat {
-  background: rgba(255, 255, 255, 0.88);
-  border-radius: 20px;
-  padding: 24px 18px;
-  box-shadow: 0 14px 36px rgba(17, 24, 39, 0.08);
-  backdrop-filter: blur(10px);
+.carte-stat strong{
+ display: block;
+ margin-bottom: 6px;
+ color: var(--dark);
+ font-family: var(--title-font);
+ font-size: clamp(1.7rem, 3vw, 2.4rem);
+ line-height: 1;
 }
 
-/* Valeur numerique de la statistique. */
-.carte-stat strong {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--dark);
-  font-family: var(--title-font);
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
-  line-height: 1;
+.carte-stat span{
+ color: #5f6b7a;
+ font-weight: 500;
 }
 
-/* Texte explicatif de la statistique. */
-.carte-stat span {
-  color: #5f6b7a;
-  font-weight: 500;
+.grille-cartes{
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+ gap: 24px;
 }
 
-/* Grille responsive reutilisable pour les cartes. */
-.grille-cartes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-}
-
-/* Quand une section passe sur la grille Bootstrap,
-   on force les colonnes a prendre toute la hauteur disponible. */
-.row.g-4 > [class*="col-"] {
-  display: flex;
-}
-
-/* Les cartes placees dans les colonnes Bootstrap remplissent bien leur colonne. */
-.row.g-4 > [class*="col-"] > .carte-freelance,
-.row.g-4 > [class*="col-"] > .carte-blog,
-.row.g-4 > [class*="col-"] > .carte-temoignage,
-.row.g-4 > [class*="col-"] > .pricing-card {
-  width: 100%;
-  height: 100%;
-}
-
-/* Apparence commune des cartes de freelances, blog et temoignages. */
+/* Cartes de contenu réutilisables : freelances, blog et témoignages */
 .carte-freelance,
 .carte-blog,
-.carte-temoignage {
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.08);
-  transition: transform var(--transition), box-shadow var(--transition);
-  backdrop-filter: blur(10px);
+.carte-temoignage{
+ background: rgba(255, 255, 255, 0.92);
+ border-radius: 20px;
+ overflow: hidden;
+ box-shadow: 0 16px 32px rgba(17, 24, 39, 0.08);
+ transition: transform var(--transition), box-shadow var(--transition);
+ backdrop-filter: blur(10px);
+ height: 100%;
 }
 
-/* Effet de survol qui donne du relief aux cartes. */
+/* Effet hover léger pour relever la carte */
 .carte-freelance:hover,
 .carte-blog:hover,
-.carte-temoignage:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 55px rgba(17, 24, 39, 0.14);
+.carte-temoignage:hover{
+ transform: translateY(-5px);
+ box-shadow: 0 22px 46px rgba(17, 24, 39, 0.14);
 }
 
-/* Les images de cartes prennent toute la largeur et gardent un bon cadrage. */
+/* Image plein largeur, recadrage plus naturel et hauteur fixe */
 .carte-freelance img,
 .carte-blog img,
-.carte-temoignage img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  object-position: center;
+.carte-temoignage img{
+ width: 100%;
+ height: 180px;
+ object-fit: cover;
+ object-position: center;
+ display: block;
+ border-top-left-radius: 20px;
+ border-top-right-radius: 20px;
 }
 
-/* Les temoignages gardent un leger recentrage du visage,
-   tout en conservant exactement la meme hauteur que les autres cartes. */
-.carte-temoignage img {
-  object-position: center 22%;
+.carte-blog img{
+ object-position: center 25%;
 }
 
-/* Image principale du hero sur la page d'accueil. */
-.image-hero {
-  height: 420px;
-  object-fit: cover;
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
-  box-shadow: 0 20px 50px rgba(17, 24, 39, 0.18);
+/* Repositionnement spécifique des images freelance pour mieux centrer les visages */
+.carte-freelance img{
+ object-position: center 30%;
 }
 
-/* Overlay sombre sur l'image du hero:
-   il sert surtout a rendre le texte blanc bien lisible. */
-.superposition-hero {
-  /* Se place au-dessus de l'image hero. */
-  position: absolute;
-  inset: 0;
-  /* Centre le bloc texte verticalement et horizontalement. */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Evite que le texte colle aux bords sur petit ecran. */
-  padding: 32px 20px;
-  /* Degrade sombre pour rendre le texte bien lisible. */
-  background:
-    linear-gradient(90deg, rgba(17, 24, 39, 0.78) 0%, rgba(17, 24, 39, 0.5) 45%, rgba(17, 24, 39, 0.18) 100%);
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
+/* Images de l'équipe dans la page a-propos : centrées par rapport au portrait */
+.about-team .carte-freelance img{
+ object-position: center 20%;
 }
 
-/* Bloc qui contient le texte pose sur l'image. */
-.contenu-hero-superpose {
-  width: min(100%, 760px);
-  text-align: center;
-  color: var(--white);
+/* Cartes freelances et équipe avec style témoignage */
+.freelance-listing .carte-freelance,
+.about-team .carte-freelance{
+ background: rgba(255, 255, 255, 0.97);
+ border-radius: 34px;
+ box-shadow: 0 26px 60px rgba(17, 24, 39, 0.12);
 }
 
-/* Petit badge au-dessus du titre dans le hero. */
-.accroche-hero {
-  display: inline-block;
-  margin-bottom: 18px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  color: #f9fafb;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  backdrop-filter: blur(6px);
+.freelance-listing .carte-freelance img,
+.about-team .carte-freelance img{
+ width: 132px;
+ height: 132px;
+ object-fit: cover;
+ object-position: center;
+ border-radius: 50%;
+ margin: 24px auto 12px;
+ border: 4px solid rgba(255, 255, 255, 0.9);
+ box-shadow: 0 20px 40px rgba(17, 24, 39, 0.08);
 }
 
-/* Titre principal sur l'image hero. */
-.contenu-hero-superpose h1 {
-  color: var(--white);
-  font-size: clamp(2.3rem, 5vw, 4.35rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  margin-bottom: 16px;
+.freelance-listing .carte-freelance .corps-carte,
+.about-team .carte-freelance .corps-carte{
+ padding: 24px 22px 28px;
+ text-align: center;
 }
 
-/* Paragraphe du hero sur image. */
-.contenu-hero-superpose p {
-  max-width: 640px;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.05rem;
+.freelance-listing .carte-freelance p,
+.about-team .carte-freelance p{
+ margin: 0 auto 12px;
+ max-width: 100%;
+ color: #5f6b7a;
 }
 
-/* Hero des pages internes:
-   fond plus leger que le hero image, mais visuellement premium. */
-.hero-interne {
-  padding: 64px 0 72px;
-  background:
-    radial-gradient(circle at top left, rgba(108, 99, 255, 0.14), transparent 30%),
-    radial-gradient(circle at top right, rgba(255, 122, 24, 0.14), transparent 32%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(247, 248, 252, 0.82) 100%);
-  backdrop-filter: blur(10px);
+.freelance-listing .carte-freelance button{
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ gap: 8px;
+ margin-top: 10px;
+ }
+
+/* Espace interne commun des contenus de carte */
+.carte-freelance .corps-carte,
+.carte-temoignage .corps-carte,
+.carte-blog .corps-carte{
+ padding: 18px;
 }
 
-/* Contenu centre des pages internes. */
-.contenu-hero-interne {
-  max-width: 780px;
-  margin: 0 auto;
-  text-align: center;
+.carte-blog .corps-carte{
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ min-height: 230px;
 }
 
-/* Grand titre des pages internes. */
-.contenu-hero-interne h1 {
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  margin-bottom: 16px;
+.carte-blog .corps-carte a{
+ margin-top: auto;
 }
 
-/* Texte d'intro des pages internes. */
-.contenu-hero-interne p {
-  max-width: 680px;
-  margin: 0 auto;
-  font-size: 1.05rem;
+/* Conteneur responsive pour la map Google */
+.map-responsive{
+ position: relative;
+ width: 100%;
+ overflow: hidden;
+ border-radius: 24px;
+ box-shadow: 0 18px 40px rgba(17, 24, 39, 0.12);
+ padding-top: 56.25%;
+ background: #f7f8fb;
 }
 
-/* Intro specifique a la page freelances:
-   ici on retire un peu d'espace en haut car le hero fait deja le travail visuel. */
-.directory-intro {
-  padding-top: 0;
+.map-responsive iframe{
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ border: 0;
+ border-radius: 24px;
 }
 
-/* Ces sections sont centrees pour garder une presentation plus editorial/premium. */
+.image-hero{
+ height: 420px;
+ object-fit: cover;
+ border-bottom-left-radius: 28px;
+ border-bottom-right-radius: 28px;
+ box-shadow: 0 20px 50px rgba(17, 24, 39, 0.18);
+}
+
+.superposition-hero{
+ position: absolute;
+ inset: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding: 32px 20px;
+ background:
+ linear-gradient(90deg, rgba(17, 24, 39, 0.78) 0%, rgba(17, 24, 39, 0.5) 45%, rgba(17, 24, 39, 0.18) 100%);
+ border-bottom-left-radius: 28px;
+ border-bottom-right-radius: 28px;
+}
+
+.contenu-hero-superpose{
+ width: min(100%, 760px);
+ text-align: center;
+ color: var(--white);
+}
+
+.accroche-hero{
+ display: inline-block;
+ margin-bottom: 18px;
+ padding: 8px 14px;
+ border-radius: 999px;
+ background: rgba(255, 255, 255, 0.14);
+ color: #f9fafb;
+ font-size: 0.9rem;
+ font-weight: 600;
+ letter-spacing: 0.02em;
+ backdrop-filter: blur(6px);
+}
+
+.contenu-hero-superpose h1{
+ color: var(--white);
+ font-size: clamp(2.3rem, 5vw, 4.35rem);
+ line-height: 1.05;
+ letter-spacing: -0.04em;
+ margin-bottom: 16px;
+}
+
+.contenu-hero-superpose p{
+ max-width: 640px;
+ margin: 0 auto;
+ color: rgba(255, 255, 255, 0.9);
+ font-size: 1.05rem;
+}
+
+.hero-interne{
+ padding: 64px 0 72px;
+ background:
+ radial-gradient(circle at top left, rgba(108, 99, 255, 0.14), transparent 30%),
+ radial-gradient(circle at top right, rgba(255, 122, 24, 0.14), transparent 32%),
+ linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(247, 248, 252, 0.82) 100%);
+ backdrop-filter: blur(10px);
+}
+
+.contenu-hero-interne{
+ max-width: 780px;
+ margin: 0 auto;
+ text-align: center;
+}
+
+.contenu-hero-interne h1{
+ font-size: clamp(2.2rem, 5vw, 4rem);
+ line-height: 1.08;
+ letter-spacing: -0.03em;
+ margin-bottom: 16px;
+}
+
+.contenu-hero-interne p{
+ max-width: 680px;
+ margin: 0 auto;
+ font-size: 1.05rem;
+}
+
+.directory-intro{
+ padding-top: 0;
+}
+
 .search-panel,
 .filter-section,
-.freelance-listing {
-  text-align: center;
+.freelance-listing{
+ text-align: center;
 }
 
-/* Bloc de recherche principal de la page freelances. */
-.search-panel {
-  max-width: 980px;
-  margin: 0 auto 20px;
+.search-panel{
+ max-width: 980px;
+ margin: 0 auto 20px;
 }
 
-/* Barre de recherche stylisee comme un panneau premium. */
-.search-bar {
-  /* Flex pour aligner champ de recherche et boutons de filtre. */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  /* Padding interne du panneau. */
-  padding: 18px;
-  /* Fond legerement transparent pour garder la coherence du design. */
-  background: rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(17, 24, 39, 0.06);
-  border-radius: 24px;
-  box-shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
-  backdrop-filter: blur(12px);
+.search-bar{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 18px;
+ padding: 18px;
+ background: rgba(255, 255, 255, 0.84);
+ border: 1px solid rgba(17, 24, 39, 0.06);
+ border-radius: 24px;
+ box-shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+ backdrop-filter: blur(12px);
 }
 
-/* Zone gauche de la recherche:
-   icone + input. */
-.search-field {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 6px;
+.search-field{
+ flex: 1;
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ padding: 0 6px;
 }
 
-/* Icone dans le champ de recherche. */
-.search-field i {
-  color: var(--primary);
-  font-size: 1.1rem;
+.search-field i{
+ color: var(--primary);
+ font-size: 1.1rem;
 }
 
-/* Input principal:
-   pas de bordure native pour garder un look plus propre. */
-.search-field input {
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: var(--dark);
-  font-size: 1rem;
+.search-field input{
+ width: 100%;
+ border: none;
+ outline: none;
+ background: transparent;
+ color: var(--dark);
+ font-size: 1rem;
 }
 
-/* Conteneurs des boutons de tri / filtres. */
 .search-tools,
-.filter-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
+.filter-chips{
+ display: flex;
+ flex-wrap: wrap;
+ gap: 12px;
+ justify-content: center;
 }
 
-/* Puces de filtres:
-   petits boutons pill reutilisables sur la page. */
-.filter-chip {
-  border: 1px solid rgba(17, 24, 39, 0.08);
-  border-radius: 999px;
-  padding: 12px 18px;
-  background: rgba(255, 255, 255, 0.86);
-  color: var(--dark);
-  font-weight: 600;
-  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.06);
-  transition: transform var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition);
-  backdrop-filter: blur(10px);
+.filter-chip{
+ border: 1px solid rgba(17, 24, 39, 0.08);
+ border-radius: 999px;
+ padding: 12px 18px;
+ background: rgba(255, 255, 255, 0.86);
+ color: var(--dark);
+ font-weight: 600;
+ box-shadow: 0 12px 28px rgba(17, 24, 39, 0.06);
+ transition: transform var(--transition), box-shadow var(--transition), color var(--transition), background var(--transition);
+ backdrop-filter: blur(10px);
 }
 
-/* Petit espace entre l'icone et le texte du chip. */
-.filter-chip i {
-  margin-right: 8px;
+.filter-chip i{
+ margin-right: 8px;
 }
 
-/* Etat hover et actif d'un chip. */
 .filter-chip:hover,
-.filter-chip.active {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.12), rgba(255, 122, 24, 0.14));
-  color: var(--primary);
-  box-shadow: 0 16px 34px rgba(17, 24, 39, 0.1);
+.filter-chip.active{
+ transform: translateY(-2px);
+ background: linear-gradient(135deg, rgba(108, 99, 255, 0.12), rgba(255, 122, 24, 0.14));
+ color: var(--primary);
+ box-shadow: 0 16px 34px rgba(17, 24, 39, 0.1);
 }
 
-/* Espace sous la section des filtres. */
-.filter-section {
-  margin-bottom: 16px;
+.filter-section{
+ margin-bottom: 16px;
 }
 
-/* Ajustement du label de section dans le listing freelances. */
-.freelance-listing .etiquette-section {
-  margin-bottom: 10px;
+.freelance-listing .etiquette-section{
+ margin-bottom: 10px;
 }
 
-/* Sections internes centrees sur plusieurs pages. */
+
+.directory-intro{
+ padding-top: 0;
+}
+
+.freelance-listing{
+ text-align: center;
+}
+
 .about-story,
 .about-team,
 .values-section,
-.about-stats,
-.blog-section,
-.pricing-section,
-.contact-section {
-  text-align: center;
+.about-stats{
+ text-align: center;
 }
 
-/* Certaines sections ont aussi une largeur maitrisee pour eviter des lignes trop longues. */
-.about-story,
-.blog-section,
-.pricing-section {
-  max-width: 980px;
-  margin: 0 auto;
+.about-story{
+ max-width: 980px;
+ margin: 0 auto;
 }
 
-/* Les cartes de l'equipe doivent rester bien alignees,
-   meme si le contenu texte varie legerement d'une personne a l'autre. */
-.about-team .carte-freelance {
-  height: 100%;
+.values-grid{
+ margin-top: 16px;
 }
 
-.about-team .corps-carte {
-  min-height: 110px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.blog-section{
+ text-align: center;
+ max-width: 980px;
+ margin: 0 auto;
 }
 
-/* Cadrage un peu plus haut pour mieux mettre les visages en valeur. */
-.about-team .carte-freelance img {
-  height: 260px;
-  object-position: center 18%;
+
+.pricing-section{
+ text-align: center;
+ max-width: 980px;
+ margin: 0 auto;
+}
+.contact-section{
+ text-align: center;
 }
 
-/* Les cartes freelances de l'annuaire gardent une structure reguliere
-   pour que les profils restent bien alignes dans la grille. */
-.freelance-listing .carte-freelance {
-  height: 100%;
-}
-
-.freelance-listing .corps-carte {
-  min-height: 210px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.freelance-listing .carte-freelance img {
-  height: 260px;
-  object-position: center 18%;
-}
-
-.freelance-listing .carte-freelance button {
-  margin-top: auto;
-  align-self: flex-start;
-}
-
-/* Petit espace au-dessus de la grille de valeurs. */
-.values-grid {
-  margin-top: 16px;
-}
-
-/* Cartes informatives reutilisables:
-   valeurs, tarifs, formulaire, bloc contact. */
 .info-card,
 .pricing-card,
 .contact-form,
-.contact-info {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 24px;
-  padding: 28px;
-  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.08);
-  backdrop-filter: blur(10px);
+.contact-info{
+ background: rgba(255, 255, 255, 0.9);
+ border-radius: 24px;
+ padding: 28px;
+ box-shadow: 0 18px 45px rgba(17, 24, 39, 0.08);
+ backdrop-filter: blur(10px);
 }
 
-/* Titre de certaines cartes avec espacement controle. */
 .info-card h3,
-.pricing-card h3 {
-  margin-bottom: 12px;
+.pricing-card h3{
+ margin-bottom: 12px;
 }
 
-/* Les cartes de pricing doivent avoir la meme hauteur visuelle. */
-.pricing-grid {
-  align-items: stretch;
+.pricing-grid{
+ align-items: stretch;
 }
 
-/* Texte des cartes tarifaires centre. */
-.pricing-card {
-  text-align: center;
+.pricing-card{
+ text-align: center;
 }
 
-/* Badge icone dans les cartes tarifs. */
-.pricing-badge {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.14), rgba(255, 122, 24, 0.18));
-  color: var(--primary);
-  font-size: 1.5rem;
+.pricing-badge{
+ width: 64px;
+ height: 64px;
+ margin: 0 auto 18px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 20px;
+ background: linear-gradient(135deg, rgba(108, 99, 255, 0.14), rgba(255, 122, 24, 0.18));
+ color: var(--primary);
+ font-size: 1.5rem;
 }
 
-/* Prix mis en avant avec une typographie forte. */
-.pricing-price {
-  margin-bottom: 18px;
-  color: var(--dark);
-  font-family: var(--title-font);
-  font-size: 1.8rem;
-  font-weight: 700;
+.pricing-price{
+ margin-bottom: 18px;
+ color: var(--dark);
+ font-family: var(--title-font);
+ font-size: 1.8rem;
+ font-weight: 700;
 }
 
-/* Liste d'avantages dans les cartes tarifs. */
-.pricing-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 24px;
-  display: grid;
-  gap: 12px;
+.pricing-card ul{
+ list-style: none;
+ padding: 0;
+ margin: 0 0 24px;
+ display: grid;
+ gap: 12px;
 }
 
-/* Les icones des listes de tarifs prennent la couleur secondaire. */
-.pricing-card li i {
-  margin-right: 10px;
-  color: var(--secondary);
+.pricing-card li i{
+ margin-right: 10px;
+ color: var(--secondary);
 }
 
-/* Carte "mise en avant" pour le plan principal. */
-.pricing-card-featured {
-  border: 1px solid rgba(108, 99, 255, 0.18);
-  box-shadow: 0 24px 52px rgba(108, 99, 255, 0.12);
+.pricing-card-featured{
+ border: 1px solid rgba(108, 99, 255, 0.18);
+ box-shadow: 0 24px 52px rgba(108, 99, 255, 0.12);
 }
 
-/* Mise en page a deux colonnes pour la page contact. */
-.contact-layout {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 24px;
-  align-items: start;
+.contact-layout{
+ display: grid;
+ grid-template-columns: 0.95fr 1.05fr;
+ gap: 24px;
+ align-items: start;
 }
 
-/* Bloc d'information de contact aligne a gauche pour plus de lisibilite. */
-.contact-info {
-  text-align: left;
+.contact-info{
+ text-align: left;
 }
 
-/* Liste verticale des points de contact. */
-.contact-points {
-  display: grid;
-  gap: 14px;
-  margin-top: 24px;
+.contact-points{
+ display: grid;
+ gap: 14px;
+ margin-top: 24px;
 }
 
-/* Supprime l'espace par defaut des paragraphes de contact. */
-.contact-points p {
-  margin: 0;
+.contact-points p{
+ margin: 0;
 }
 
-/* Couleur des icones dans le bloc contact. */
-.contact-points i {
-  color: var(--primary);
-  margin-right: 10px;
+.contact-points i{
+ color: var(--primary);
+ margin-right: 10px;
 }
 
-/* Formulaire de contact organise en grille verticale. */
-.contact-form {
-  display: grid;
-  gap: 12px;
-  text-align: left;
+.contact-form{
+ display: grid;
+ gap: 12px;
+ text-align: left;
 }
 
-/* Labels plus lisibles dans le formulaire. */
-.contact-form label {
-  font-weight: 600;
-  color: var(--dark);
+.contact-form label{
+ font-weight: 600;
+ color: var(--dark);
 }
 
-/* Champs du formulaire:
-   fond leger, bordure douce, coins arrondis. */
 .contact-form input,
 .contact-form select,
-.contact-form textarea {
-  width: 100%;
-  border: 1px solid rgba(17, 24, 39, 0.1);
-  border-radius: 16px;
-  padding: 14px 16px;
-  outline: none;
-  background: #fbfcfe;
+.contact-form textarea{
+ width: 100%;
+ border: 1px solid rgba(17, 24, 39, 0.1);
+ border-radius: 16px;
+ padding: 14px 16px;
+ outline: none;
+ background: #fbfcfe;
 }
 
-/* Zone de texte plus haute et redimensionnable verticalement. */
-.contact-form textarea {
-  min-height: 160px;
-  resize: vertical;
+.contact-form textarea{
+ min-height: 160px;
+ resize: vertical;
 }
 
-/* Le bouton du formulaire n'occupe pas toute la largeur sur desktop. */
-.contact-form .hero-btn {
-  width: auto;
-  justify-self: start;
+.contact-form .hero-btn{
+ width: auto;
+ justify-self: start;
 }
 
-/* Bandeau de confiance sous le hero. */
-.bandeau-confiance {
-  display: grid;
-  gap: 18px;
-  margin: -40px auto 32px;
-  padding: 24px 28px;
-  max-width: 980px;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(17, 24, 39, 0.06);
-  border-radius: 24px;
-  box-shadow: 0 18px 44px rgba(17, 24, 39, 0.08);
-  backdrop-filter: blur(10px);
-  text-align: center;
+.bandeau-confiance{
+ display: grid;
+ gap: 18px;
+ margin: -40px auto 32px;
+ padding: 24px 28px;
+ max-width: 980px;
+ background: rgba(255, 255, 255, 0.88);
+ border: 1px solid rgba(17, 24, 39, 0.06);
+ border-radius: 24px;
+ box-shadow: 0 18px 44px rgba(17, 24, 39, 0.08);
+ backdrop-filter: blur(10px);
+ text-align: center;
 }
 
-/* Phrase principale du bandeau. */
-.bandeau-confiance > span {
-  color: #4b5563;
-  font-weight: 600;
+.bandeau-confiance > span{
+ color: #4b5563;
+ font-weight: 600;
 }
 
-/* Alignement horizontal des "logos" textuels. */
-.logos-confiance {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
+.logos-confiance{
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 12px;
 }
 
-/* Style visuel de chaque pastille/secteur. */
-.logos-confiance span {
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: #f8fafc;
-  color: #64748b;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+.logos-confiance span{
+ padding: 10px 14px;
+ border-radius: 999px;
+ background: #f8fafc;
+ color: #64748b;
+ font-weight: 700;
+ letter-spacing: 0.02em;
 }
 
-/* Sections principales de la home centrees. */
 .how-it-works,
 .categories,
 .section-temoignages,
-.section-cta {
-  text-align: center;
+.section-cta{
+ text-align: center;
 }
 
-/* Marges entre sections pour donner plus d'air. */
-.how-it-works {
-  margin-bottom: 20px;
+.how-it-works{
+ margin-bottom: 20px;
 }
 
-.categories {
-  margin-bottom: 20px;
+.categories{
+ margin-bottom: 20px;
 }
 
-.section-temoignages {
-  margin-bottom: 28px;
+.section-temoignages{
+ margin-bottom: 28px;
 }
 
-/* Cartes des sections "comment ca marche" et "categories". */
 .how-it-works article,
-.categories article {
-  background: var(--white);
-  border-radius: 18px;
-  padding: 24px;
-  box-shadow: 0 14px 35px rgba(17, 24, 39, 0.07);
-  transition: transform var(--transition), box-shadow var(--transition);
+.categories article{
+ background: var(--white);
+ border-radius: 18px;
+ padding: 24px;
+ box-shadow: 0 14px 35px rgba(17, 24, 39, 0.07);
+ transition: transform var(--transition), box-shadow var(--transition);
 }
 
-/* Relief au hover sur ces cartes. */
 .how-it-works article:hover,
-.categories article:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 45px rgba(17, 24, 39, 0.12);
+.categories article:hover{
+ transform: translateY(-4px);
+ box-shadow: 0 20px 45px rgba(17, 24, 39, 0.12);
 }
 
-/* Mise en page des titres avec icones integrees. */
 .how-it-works h3,
-.categories h3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 12px;
+.categories h3{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 12px;
+ margin-bottom: 12px;
 }
 
-/* Style des icones dans ces sections:
-   pastille, taille, couleur, degrades. */
 .how-it-works i,
-.categories i {
-  width: 48px;
-  height: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.14), rgba(255, 122, 24, 0.18));
-  color: var(--primary);
-  font-size: 1.3rem;
-  flex-shrink: 0;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+.categories i{
+ width: 48px;
+ height: 48px;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 14px;
+ background: linear-gradient(135deg, rgba(108, 99, 255, 0.14), rgba(255, 122, 24, 0.18));
+ color: var(--primary);
+ font-size: 1.3rem;
+ flex-shrink: 0;
+ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-/* Grille responsive de la section "comment ca marche". */
-.how-it-works {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+.how-it-works{
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+ gap: 24px;
 }
 
-/* Le titre prend toute la largeur de la grille. */
-.how-it-works h2 {
-  grid-column: 1 / -1;
-  margin-bottom: 8px;
+.how-it-works h2{
+ grid-column: 1 / -1;
+ margin-bottom: 8px;
 }
 
-/* Meme chose pour les petits labels de section. */
 .how-it-works .etiquette-section,
 .categories .etiquette-section,
-.section-temoignages .etiquette-section {
-  grid-column: 1 / -1;
-  justify-self: center;
-  margin-bottom: 0;
+.section-temoignages .etiquette-section{
+ grid-column: 1 / -1;
+ justify-self: center;
+ margin-bottom: 0;
 }
 
-/* Grille responsive de la section categories. */
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+.categories{
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+ gap: 24px;
 }
 
-/* Le titre prend toute la largeur de la grille categories. */
-.categories h2 {
-  grid-column: 1 / -1;
-  margin-bottom: 8px;
+.categories h2{
+ grid-column: 1 / -1;
+ margin-bottom: 8px;
 }
 
-/* Espace sous le titre des temoignages. */
-.testimonials-section h2 {
-  margin-bottom: 28px;
+.testimonials-section h2{
+ margin-bottom: 28px;
 }
 
-/* On annule la marge native du blockquote. */
-.carte-temoignage {
-  margin: 0;
+.carte-temoignage{
+ margin: 0;
 }
 
-/* Structure verticale du contenu texte dans un temoignage. */
-.carte-temoignage .corps-carte {
-  display: grid;
-  gap: 12px;
+.carte-temoignage .corps-carte{
+ display: grid;
+ gap: 16px;
+ padding: 0;
 }
 
-/* Supprime les marges parasites sur le texte des temoignages. */
-.carte-temoignage p {
-  margin: 0;
+.carte-temoignage p{
+ margin: 0 auto;
+ max-width: 520px;
+ font-size: 1rem;
+ line-height: 1.8;
+ color: #475062;
 }
 
-/* Auteur du temoignage mis en avant avec la couleur primaire. */
-.carte-temoignage footer {
-  color: var(--primary);
-  font-weight: 600;
+.carte-temoignage footer{
+ color: var(--primary);
+ font-weight: 700;
+ font-size: 0.98rem;
+ letter-spacing: 0.01em;
 }
 
-/* Bloc final d'appel a l'action. */
-.section-cta {
-  max-width: 760px;
-  margin: 24px auto 0;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(255, 122, 24, 0.1));
-  border-radius: 28px;
-  padding: 56px 28px;
+.section-temoignages .carte-temoignage{
+ max-width: 560px;
+ padding: 30px 26px 24px;
+ background: rgba(255, 255, 255, 0.97);
+ border-radius: 34px;
+ box-shadow: 0 26px 60px rgba(17, 24, 39, 0.12);
 }
 
-/* Titre du CTA final. */
-.section-cta h2 {
-  font-size: clamp(1.9rem, 3vw, 2.7rem);
-  margin-bottom: 16px;
+.section-temoignages .carte-temoignage img{
+ width: 132px;
+ height: 132px;
+ object-fit: cover;
+ object-position: center;
+ border-radius: 50%;
+ margin: 0 auto 20px;
+ border: 4px solid rgba(255, 255, 255, 0.9);
+ box-shadow: 0 20px 40px rgba(17, 24, 39, 0.08);
 }
 
-/* Paragraphe du CTA avec largeur limitee. */
-.section-cta p {
-  max-width: 620px;
-  margin: 0 auto 24px;
-  color: #556070;
+.section-temoignages .carousel-control-prev,
+.section-temoignages .carousel-control-next{
+ width: 48px;
+ height: 48px;
+ border-radius: 999px;
+ background: rgba(255, 255, 255, 0.92);
+ border: 1px solid rgba(17, 24, 39, 0.08);
 }
 
-/* Footer global:
-   fond travaille, halos decoratifs et structure premium. */
-.pied-site {
-  /* Espace entre le contenu principal et le footer. */
-  margin-top: 88px;
-  /* Padding haut/bas du footer. */
-  padding: 64px 0 28px;
-  /* Plusieurs couches pour un footer plus riche visuellement. */
-  background:
-    radial-gradient(circle at top left, rgba(108, 99, 255, 0.08), transparent 30%),
-    radial-gradient(circle at top right, rgba(255, 122, 24, 0.08), transparent 32%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.98) 100%);
-  border-top: 1px solid rgba(17, 24, 39, 0.08);
-  /* Permet de positionner les halos decoratifs. */
-  position: relative;
-  overflow: hidden;
+.section-temoignages .carousel-control-prev-icon,
+.section-temoignages .carousel-control-next-icon{
+ filter: invert(0.2);
 }
 
-/* Halo decoratif en bas a droite. */
-.pied-site::before {
-  content: "";
-  position: absolute;
-  inset: auto -10% -120px auto;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(108, 99, 255, 0.14), transparent 68%);
-  pointer-events: none;
+.section-cta{
+ max-width: 760px;
+ margin: 24px auto 0;
+ background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(255, 122, 24, 0.1));
+ border-radius: 28px;
+ padding: 56px 28px;
 }
 
-/* Halo decoratif en haut a gauche. */
-.pied-site::after {
-  content: "";
-  position: absolute;
-  inset: -120px auto auto -80px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 122, 24, 0.12), transparent 70%);
-  pointer-events: none;
+.section-cta h2{
+ font-size: clamp(1.9rem, 3vw, 2.7rem);
+ margin-bottom: 16px;
 }
 
-/* Partie haute du footer:
-   logo, phrase de marque, reseaux sociaux. */
-.haut-pied {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding-bottom: 28px;
-  margin-bottom: 28px;
-  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
-  position: relative;
-  z-index: 1;
+.section-cta p{
+ max-width: 620px;
+ margin: 0 auto 24px;
+ color: #556070;
 }
 
-/* Texte descriptif sous le logo du footer. */
-.marque-pied p {
-  max-width: 520px;
-  margin: 14px 0 0;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #516072;
+.pied-site{
+ margin-top: 88px;
+ padding: 64px 0 28px;
+ background:
+ radial-gradient(circle at top left, rgba(108, 99, 255, 0.08), transparent 30%),
+ radial-gradient(circle at top right, rgba(255, 122, 24, 0.08), transparent 32%),
+ linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.98) 100%);
+ border-top: 1px solid rgba(17, 24, 39, 0.08);
+ position: relative;
+ overflow: hidden;
 }
 
-/* Ligne d'icones sociales. */
-.reseaux-pied {
-  display: flex;
-  gap: 12px;
+.pied-site::before{
+ content: "";
+ position: absolute;
+ inset: auto -10% -120px auto;
+ width: 320px;
+ height: 320px;
+ border-radius: 50%;
+ background: radial-gradient(circle, rgba(108, 99, 255, 0.14), transparent 68%);
+ pointer-events: none;
 }
 
-/* Boutons sociaux ronds. */
-.reseaux-pied a {
-  /* Taille fixe pour obtenir un cercle parfait. */
-  width: 44px;
-  height: 44px;
-  /* Centre parfaitement l'icone dedans. */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: #f8fafc;
-  color: var(--dark);
-  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
-  transition: transform var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+.pied-site::after{
+ content: "";
+ position: absolute;
+ inset: -120px auto auto -80px;
+ width: 260px;
+ height: 260px;
+ border-radius: 50%;
+ background: radial-gradient(circle, rgba(255, 122, 24, 0.12), transparent 70%);
+ pointer-events: none;
 }
 
-/* Hover des reseaux sociaux. */
-.reseaux-pied a:hover {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--white);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 30px rgba(108, 99, 255, 0.2);
+.haut-pied{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 24px;
+ padding-bottom: 28px;
+ margin-bottom: 28px;
+ border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+ position: relative;
+ z-index: 1;
 }
 
-/* Titre de colonne dans le footer. */
-.pied-site h4 {
-  margin-bottom: 14px;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--dark);
+.marque-pied p{
+ max-width: 520px;
+ margin: 14px 0 0;
+ font-size: 1rem;
+ line-height: 1.75;
+ color: #516072;
 }
 
-/* Style texte/lien general du footer. */
+.reseaux-pied{
+ display: flex;
+ gap: 12px;
+}
+
+.reseaux-pied a{
+ width: 44px;
+ height: 44px;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ border-radius: 999px;
+ background: #f8fafc;
+ color: var(--dark);
+ box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+ transition: transform var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.reseaux-pied a:hover{
+ background: linear-gradient(135deg, var(--primary), var(--secondary));
+ color: var(--white);
+ transform: translateY(-3px);
+ box-shadow: 0 16px 30px rgba(108, 99, 255, 0.2);
+}
+
+.pied-site h4{
+ margin-bottom: 14px;
+ font-size: 1rem;
+ font-weight: 700;
+ letter-spacing: 0.01em;
+ color: var(--dark);
+}
+
 .pied-site p,
 .pied-site li,
-.pied-site a {
-  color: #5f6b7a;
-  text-decoration: none;
+.pied-site a{
+ color: #5f6b7a;
+ text-decoration: none;
 }
 
-/* Reglage fin sur le texte des colonnes du footer. */
 .pied-site .row p,
 .pied-site .row li,
-.pied-site .row a {
-  font-size: 0.97rem;
-  line-height: 1.8;
+.pied-site .row a{
+ font-size: 0.97rem;
+ line-height: 1.8;
 }
 
-/* Espacement des paragraphes dans les colonnes. */
-.pied-site .row p {
-  margin-bottom: 10px;
+.pied-site .row p{
+ margin-bottom: 10px;
 }
 
-/* Colonnes du footer au-dessus des effets decoratifs. */
-.pied-site .row > div {
-  margin-bottom: 18px;
-  position: relative;
-  z-index: 1;
+.pied-site .row > div{
+ margin-bottom: 18px;
+ position: relative;
+ z-index: 1;
 }
 
-/* Espace lateral des colonnes. */
-.pied-site .row > [class*="col-"] {
-  padding-right: 22px;
+.pied-site .col-md-3{
+ padding-right: 22px;
 }
 
-/* Colonnes 2 a 4 legerement decalees pour une meilleure respiration. */
-.pied-site .row > [class*="col-"]:not(:first-child) {
-  padding-left: 28px;
+.pied-site .col-md-3:not(:first-child){
+ padding-left: 28px;
 }
 
-/* Fine ligne verticale entre colonnes du footer. */
-.pied-site .row > [class*="col-"]:not(:first-child)::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 6px;
-  bottom: 6px;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(17, 24, 39, 0.08), transparent);
+.pied-site .col-md-3:not(:first-child)::before{
+ content: "";
+ position: absolute;
+ left: 0;
+ top: 6px;
+ bottom: 6px;
+ width: 1px;
+ background: linear-gradient(180deg, transparent, rgba(17, 24, 39, 0.08), transparent);
 }
 
-/* Liste du footer sans puce native. */
-.pied-site ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 0;
+.pied-site ul{
+ list-style: none;
+ padding-left: 0;
+ margin-bottom: 0;
 }
 
-/* Espacement entre liens verticaux du footer. */
-.pied-site li + li {
-  margin-top: 8px;
+.pied-site li + li{
+ margin-top: 8px;
 }
 
-/* Les liens du footer sont alignes avec un petit point decoratif. */
-.pied-site ul li a {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 0;
-  font-weight: 500;
+.pied-site ul li a{
+ display: inline-flex;
+ align-items: center;
+ gap: 10px;
+ padding: 6px 0;
+ font-weight: 500;
 }
 
-/* Petit point/decorateur devant chaque lien de liste. */
-.pied-site ul li a::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.08);
-  transition: transform var(--transition), box-shadow var(--transition);
+.pied-site ul li a::before{
+ content: "";
+ width: 7px;
+ height: 7px;
+ border-radius: 999px;
+ background: linear-gradient(135deg, var(--primary), var(--secondary));
+ box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.08);
+ transition: transform var(--transition), box-shadow var(--transition);
 }
 
-/* Animation du point au hover. */
-.pied-site ul li a:hover::before {
-  transform: scale(1.15);
-  box-shadow: 0 0 0 6px rgba(108, 99, 255, 0.12);
+.pied-site ul li a:hover::before{
+ transform: scale(1.15);
+ box-shadow: 0 0 0 6px rgba(108, 99, 255, 0.12);
 }
 
-/* Hover general des liens du footer. */
-.pied-site a:hover {
-  color: var(--primary);
+.pied-site a:hover{
+ color: var(--primary);
 }
 
-/* Les lignes de contact a droite ressemblent a de petits badges informatifs. */
-.pied-site .row > [class*="col-"]:last-child p {
-  /* Aligne icone et texte sur une meme ligne. */
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  /* Aspect petit badge/panneau. */
-  padding: 10px 12px;
-  margin-bottom: 10px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+.pied-site .col-md-3:last-child p{
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ padding: 10px 12px;
+ margin-bottom: 10px;
+ border-radius: 16px;
+ background: rgba(255, 255, 255, 0.65);
+ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-/* Zone icone au debut de chaque ligne de contact. */
-.pied-site .row > [class*="col-"]:last-child p::before {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(108, 99, 255, 0.14), rgba(255, 122, 24, 0.16));
-  color: var(--primary);
-  font-family: "bootstrap-icons";
-  font-size: 0.95rem;
-  flex-shrink: 0;
+.pied-site .col-md-3:last-child p::before{
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 34px;
+ height: 34px;
+ border-radius: 12px;
+ background: linear-gradient(135deg, rgba(108, 99, 255, 0.14), rgba(255, 122, 24, 0.16));
+ color: var(--primary);
+ font-family: "bootstrap-icons";
+ font-size: 0.95rem;
+ flex-shrink: 0;
 }
 
-/* Icône email. */
-.pied-site .row > [class*="col-"]:last-child p:nth-of-type(1)::before {
-  content: "\f32f";
+
+.pied-site hr{
+ margin: 36px 0 20px;
+ color: rgba(17, 24, 39, 0.1);
 }
 
-/* Icône téléphone. */
-.pied-site .row > [class*="col-"]:last-child p:nth-of-type(2)::before {
-  content: "\f5c1";
+.bas-pied{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 16px;
+ flex-wrap: wrap;
+ position: relative;
+ z-index: 1;
 }
 
-/* Icône localisation. */
-.pied-site .row > [class*="col-"]:last-child p:nth-of-type(3)::before {
-  content: "\f3e8";
+.bas-pied p{
+ margin: 0;
+ font-size: 0.92rem;
+ color: #7b8794;
 }
 
-/* Ligne de separation avant le bas de footer. */
-.pied-site hr {
-  margin: 36px 0 20px;
-  color: rgba(17, 24, 39, 0.1);
+.liens-bas-pied{
+ display: flex;
+ flex-wrap: wrap;
+ gap: 18px;
 }
 
-/* Bas du footer:
-   copyright a gauche, liens legaux a droite. */
-.bas-pied {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
+.liens-bas-pied a{
+ font-size: 0.92rem;
+ font-weight: 600;
+ color: #7b8794;
+ position: relative;
 }
 
-/* Texte discret de copyright. */
-.bas-pied p {
-  margin: 0;
-  font-size: 0.92rem;
-  color: #7b8794;
+.liens-bas-pied a::after{
+ content: "";
+ position: absolute;
+ left: 0;
+ right: 0;
+ bottom: -4px;
+ height: 1px;
+ background: currentColor;
+ opacity: 0;
+ transform: scaleX(0.6);
+ transition: opacity var(--transition), transform var(--transition);
 }
 
-/* Groupe de liens legaux. */
-.liens-bas-pied {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
+.liens-bas-pied a:hover::after{
+ opacity: 1;
+ transform: scaleX(1);
 }
 
-/* Style des liens legaux. */
-.liens-bas-pied a {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: #7b8794;
-  position: relative;
+.corps-carte{
+ padding: 22px;
 }
 
-/* Petit underline anime au hover. */
-.liens-bas-pied a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 1px;
-  background: currentColor;
-  opacity: 0;
-  transform: scaleX(0.6);
-  transition: opacity var(--transition), transform var(--transition);
+.corps-carte h3{
+ margin-bottom: 10px;
+ font-size: 1.2rem;
 }
 
-/* Active le underline des liens legaux au hover. */
-.liens-bas-pied a:hover::after {
-  opacity: 1;
-  transform: scaleX(1);
+.corps-carte p{
+ margin-bottom: 10px;
 }
 
-/* Padding interne standard des contenus de cartes. */
-.corps-carte {
-  padding: 22px;
+.corps-carte i{
+ color: var(--secondary);
+ margin-right: 8px;
 }
 
-/* Titre dans le corps d'une carte. */
-.corps-carte h3 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-/* Espacement entre paragraphes d'une carte. */
-.corps-carte p {
-  margin-bottom: 10px;
-}
-
-/* Couleur des icones a l'interieur des cartes. */
-.corps-carte i {
-  color: var(--secondary);
-  margin-right: 8px;
-}
-
-/* Espace avant les liens/boutons en fin de carte. */
 .corps-carte a,
-.corps-carte button {
-  margin-top: 10px;
+.corps-carte button{
+ margin-top: 10px;
 }
 
-/* Style des liens textes dans les cartes. */
-.corps-carte a {
-  color: var(--primary);
-  font-weight: 600;
-  text-decoration: none;
+.corps-carte a{
+ color: var(--primary);
+ font-weight: 600;
+ text-decoration: none;
 }
 
-/* Hover des liens de cartes. */
-.corps-carte a:hover {
-  color: var(--secondary);
+.corps-carte a:hover{
+ color: var(--secondary);
 }
 
-/* Bouton de contact dans les cartes freelances. */
-.carte-freelance button {
-  border: none;
-  border-radius: 999px;
-  padding: 10px 18px;
-  background: var(--primary);
-  color: var(--white);
-  font-weight: 600;
+.carte-freelance button{
+ border: none;
+ border-radius: 999px;
+ padding: 10px 18px;
+ background: var(--primary);
+ color: var(--white);
+ font-weight: 600;
 }
 
-/* Hover du bouton de carte freelance. */
-.carte-freelance button:hover {
-  background: var(--secondary);
+.carte-freelance button:hover{
+ background: var(--secondary);
 }
 
-/* Etat initial des elements animes au scroll:
-   invisibles + legerement decales. */
-[data-reveal] {
-  /* L'element commence cache... */
-  opacity: 0;
-  /* ...et legerement plus bas que sa position finale. */
-  transform: translateY(26px);
-  /* Transition douce lorsque la classe is-visible sera ajoutee. */
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  /* Optimisation des performances d'animation. */
-  will-change: opacity, transform;
+body.theme-dark{
+ color: #e5e7eb;
+ background:
+ radial-gradient(circle at 0% 0%, rgba(108, 99, 255, 0.2), transparent 26%),
+ radial-gradient(circle at 100% 0%, rgba(255, 122, 24, 0.16), transparent 24%),
+ linear-gradient(180deg, #0f172a 0%, #111827 50%, #020617 100%);
 }
 
-/* Etat visible quand l'element entre dans le viewport. */
-[data-reveal].is-visible {
-  opacity: 1;
-  transform: translateY(0);
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3,
+body.theme-dark h4,
+body.theme-dark .nav-link,
+body.theme-dark .navbar-brand{
+ color: #f9fafb !important;
 }
 
-/* Variantes d'animation laterale. */
-[data-reveal="left"] {
-  transform: translateX(-28px);
+body.theme-dark p,
+body.theme-dark li,
+body.theme-dark .etiquette-section,
+body.theme-dark .corps-carte span{
+ color: #cbd5e1;
 }
 
-[data-reveal="right"] {
-  transform: translateX(28px);
+body.theme-dark .navbar{
+ background: rgba(15, 23, 42, 0.88);
+ border-bottom-color: rgba(255, 255, 255, 0.08);
+ box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
 }
 
-/* Etat final des animations laterales. */
-[data-reveal="left"].is-visible,
-[data-reveal="right"].is-visible {
-  transform: translateX(0);
+body.theme-dark .navbar.navbar-scrolled{
+ background: rgba(15, 23, 42, 0.97);
+ box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
 }
 
-/* Animation utilisee dans les heroes. */
-@keyframes heroReveal {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+body.theme-dark .nav-link:hover{
+ background: rgba(255, 255, 255, 0.08);
+ color: #ffffff !important;
 }
 
-/* Responsive desktop large :
-   on donne un peu plus d'air aux sections sur les grands ecrans. */
-@media (min-width: 1200px) {
-  main.container {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .section-cta {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
+body.theme-dark .navbar-toggler{
+ background: rgba(255, 255, 255, 0.08);
+ border-color: rgba(255, 255, 255, 0.18);
 }
 
-/* Responsive tablette :
-   on commence a compacter les espaces et a simplifier les mises en page. */
-@media (max-width: 991.98px) {
-  body {
-    padding-top: 82px;
-  }
-
-  .navbar {
-    padding: 12px 0;
-  }
-
-  /* Le menu replie doit rester lisible et bien se detacher du hero. */
-  .navbar-collapse {
-    margin-top: 14px;
-    padding: 14px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
-  }
-
-  .nav-link {
-    width: 100%;
-    justify-content: flex-start;
-    margin-left: 0;
-    margin-bottom: 6px;
-  }
-
-  .image-hero {
-    height: 360px;
-  }
-
-  .contenu-hero-superpose h1,
-  .contenu-hero-interne h1 {
-    line-height: 1.1;
-  }
-
-  .statistiques-hero {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .search-bar,
-  .contact-layout,
-  .haut-pied,
-  .bas-pied {
-    grid-template-columns: 1fr;
-    flex-direction: column;
-  }
-
-  .search-bar {
-    align-items: stretch;
-  }
-
-  .search-tools {
-    justify-content: stretch;
-  }
-
-  .search-tools .filter-chip {
-    flex: 1 1 auto;
-  }
-
-  .pied-site .col-12.col-md-6.col-lg-3 {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .pied-site .col-12.col-md-6.col-lg-3:not(:first-child) {
-    padding-left: 12px;
-  }
-
-  .pied-site .col-12.col-md-6.col-lg-3:not(:first-child)::before {
-    display: none;
-  }
+body.theme-dark .navbar-toggler-icon{
+ filter: invert(1);
 }
 
-/* Responsive mobile :
-   on passe sur une lecture verticale, avec moins de hauteur et moins d'espaces. */
-@media (max-width: 767.98px) {
-  section {
-    padding: 56px 0;
-  }
+body.theme-dark section,
+body.theme-dark .bandeau-confiance,
+body.theme-dark .carte-freelance,
+body.theme-dark .carte-blog,
+body.theme-dark .carte-temoignage,
+body.theme-dark .how-it-works article,
+body.theme-dark .categories article,
+body.theme-dark .pricing-card,
+body.theme-dark .contact-card,
+body.theme-dark .contact-form,
+body.theme-dark .search-panel,
+body.theme-dark .filter-section,
+body.theme-dark .pied-site{
+ background: rgba(15, 23, 42, 0.86);
+ color: #e5e7eb;
+ border-color: rgba(255, 255, 255, 0.08);
+}
 
-  main.container {
-    padding: 32px 12px 64px;
-  }
+body.theme-dark .pied-site a,
+body.theme-dark .corps-carte a{
+ color: #a5b4fc;
+}
 
-  .hero-interne {
-    padding: 44px 0 52px;
-  }
+body.theme-dark .back-to-top{
+ background: var(--secondary);
+}
 
-  .image-hero {
-    height: 300px;
-  }
+body.theme-dark .bg-light{
+ background: #111827 !important;
+}
 
-  .superposition-hero {
-    padding: 22px 16px;
-    background: linear-gradient(180deg, rgba(17, 24, 39, 0.78) 0%, rgba(17, 24, 39, 0.42) 100%);
-  }
+body.theme-dark main,
+body.theme-dark .container{
+ color: #f3f4f6;
+}
 
-  .actions-hero {
-    flex-direction: column;
-  }
+body.theme-dark p,
+body.theme-dark .section-hero > p:first-of-type,
+body.theme-dark .section-cta p,
+body.theme-dark .pied-site p,
+body.theme-dark .pied-site li,
+body.theme-dark .pied-site a,
+body.theme-dark .corps-carte p,
+body.theme-dark .pricing-card li,
+body.theme-dark .info-card p,
+body.theme-dark .contact-card p,
+body.theme-dark .carte-temoignage p{
+ color: #e5e7eb !important;
+}
 
-  .bouton-hero {
-    width: 100%;
-  }
+body.theme-dark .section-hero h2,
+body.theme-dark .pricing-card h3,
+body.theme-dark .info-card h3,
+body.theme-dark .corps-carte h3,
+body.theme-dark .pied-site h4,
+body.theme-dark .carte-stat strong,
+body.theme-dark .pricing-card .price{
+ color: #ffffff !important;
+}
 
-  .statistiques-hero {
-    grid-template-columns: 1fr;
-  }
+body.theme-dark .bandeau-confiance,
+body.theme-dark .carte-stat,
+body.theme-dark .carte-freelance,
+body.theme-dark .carte-blog,
+body.theme-dark .section-temoignages .carte-temoignage,
+body.theme-dark .how-it-works article,
+body.theme-dark .categories article,
+body.theme-dark .info-card,
+body.theme-dark .pricing-card,
+body.theme-dark .contact-form,
+body.theme-dark .map-responsive,
+body.theme-dark .filter-section,
+body.theme-dark .search-bar,
+body.theme-dark .search-panel{
+ background: #1f2937 !important;
+ border: 1px solid rgba(255, 255, 255, 0.12);
+ box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+}
 
-  .bandeau-confiance {
-    margin-top: -24px;
-    padding: 20px;
-  }
+body.theme-dark .pied-site{
+ background: #0f172a !important;
+}
 
-  .how-it-works,
-  .categories {
-    grid-template-columns: 1fr;
-  }
+body.theme-dark .etiquette-section,
+body.theme-dark .filter-chip,
+body.theme-dark .pricing-card .badge,
+body.theme-dark .info-card i,
+body.theme-dark .how-it-works i,
+body.theme-dark .categories i{
+ background: rgba(129, 140, 248, 0.18) !important;
+ color: #c7d2fe !important;
+}
 
-  .carte-freelance img,
-  .carte-blog img,
-  .carte-temoignage img,
-  .about-team .carte-freelance img,
-  .freelance-listing .carte-freelance img {
-    height: 220px;
-  }
+body.theme-dark .search-field input,
+body.theme-dark .contact-form input,
+body.theme-dark .contact-form select,
+body.theme-dark .contact-form textarea,
+body.theme-dark .form-control{
+ background: #111827 !important;
+ color: #f9fafb !important;
+ border-color: rgba(255, 255, 255, 0.18) !important;
+}
 
-  .contact-form,
-  .contact-info,
-  .pricing-card,
-  .info-card {
-    padding: 22px;
-  }
+body.theme-dark .search-field input::placeholder,
+body.theme-dark .contact-form input::placeholder,
+body.theme-dark .contact-form textarea::placeholder,
+body.theme-dark .form-control::placeholder{
+ color: #9ca3af !important;
+}
 
-  .section-cta {
-    padding: 40px 20px;
-  }
+body.theme-dark .carousel-control-prev,
+body.theme-dark .carousel-control-next{
+ background: rgba(31, 41, 55, 0.96) !important;
+}
 
-  .liens-bas-pied {
-    justify-content: center;
-  }
+body.theme-dark .navbar .btn-cta{
+ color: #ffffff;
+}
+
+body.theme-dark .entete-hero,
+body.theme-dark .hero-interne{
+ background:
+ radial-gradient(circle at top left, rgba(108, 99, 255, 0.24), transparent 34%),
+ radial-gradient(circle at top right, rgba(255, 122, 24, 0.18), transparent 34%),
+ linear-gradient(180deg, #0f172a 0%, #111827 100%) !important;
+}
+
+body.theme-dark .superposition-hero{
+ background:
+ linear-gradient(90deg, rgba(2, 6, 23, 0.88) 0%, rgba(15, 23, 42, 0.72) 48%, rgba(15, 23, 42, 0.45) 100%) !important;
+}
+
+body.theme-dark .contenu-hero-superpose,
+body.theme-dark .contenu-hero-interne,
+body.theme-dark .contenu-hero-superpose h1,
+body.theme-dark .contenu-hero-interne h1,
+body.theme-dark .contenu-hero-superpose p,
+body.theme-dark .contenu-hero-interne p{
+ color: #ffffff !important;
+}
+
+body.theme-dark .accroche-hero{
+ background: rgba(255, 255, 255, 0.16) !important;
+ color: #ffffff !important;
+ border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.theme-dark .bouton-hero-secondaire{
+ background: #f9fafb !important;
+ color: #111827 !important;
+ border-color: transparent !important;
+}
+
+body.theme-dark .section-hero,
+body.theme-dark .directory-intro,
+body.theme-dark .about-story,
+body.theme-dark .about-team,
+body.theme-dark .values-section,
+body.theme-dark .about-stats,
+body.theme-dark .blog-section,
+body.theme-dark .pricing-section,
+body.theme-dark .contact-section,
+body.theme-dark .freelance-listing,
+body.theme-dark .how-it-works,
+body.theme-dark .categories,
+body.theme-dark .section-temoignages,
+body.theme-dark .section-cta{
+ color: #f9fafb !important;
+}
+
+body.theme-dark .bandeau-confiance > span,
+body.theme-dark .logos-confiance span,
+body.theme-dark .carte-stat span,
+body.theme-dark .contact-form label,
+body.theme-dark .contact-points p,
+body.theme-dark .pricing-price,
+body.theme-dark .bas-pied,
+body.theme-dark .liens-bas-pied a{
+ color: #f3f4f6 !important;
+}
+
+body.theme-dark .logos-confiance span,
+body.theme-dark .reseaux-pied a,
+body.theme-dark .pied-site .col-md-3:last-child p{
+ background: #111827 !important;
+ border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.theme-dark .contact-info,
+body.theme-dark .pricing-card-featured,
+body.theme-dark .section-cta{
+ background: #1f2937 !important;
+ border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.theme-dark .carte-temoignage footer,
+body.theme-dark .pied-site a:hover,
+body.theme-dark .contact-points i,
+body.theme-dark .pricing-card li i{
+ color: #fbbf24 !important;
+}
+
+body.theme-dark .pied-site::before,
+body.theme-dark .pied-site::after{
+ opacity: 0.35;
+}
+
+body.theme-dark .pied-site hr{
+ color: rgba(255, 255, 255, 0.18);
+}
+
+
+
+@keyframes heroReveal{
+ from{
+ opacity: 0;
+ transform: translateY(22px);
+}
+ to{
+ opacity: 1;
+ transform: translateY(0);
+}
+}
+
+@media (prefers-reduced-motion: reduce){
+ .contenu-hero-superpose > *,
+ .contenu-hero-interne > *,
+ [data-reveal]{
+ animation: none !important;
+ transition: none !important;
+ opacity: 1 !important;
+ transform: none !important;
+}
+}
+
+@media (max-width: 768px){
+ section{
+ padding: 56px 0;
+}
+
+ .carte-freelance img,
+ .carte-blog img,
+ .carte-temoignage img{
+ width: 100%;
+ height: 160px;
+ object-fit: cover;
+ object-position: center;
+}
+
+ .carte-freelance .corps-carte,
+ .carte-temoignage .corps-carte,
+ .carte-blog .corps-carte{
+ padding: 14px;
+}
+
+ .image-hero{
+ height: 280px;
+ border-bottom-left-radius: 20px;
+ border-bottom-right-radius: 20px;
+}
+
+ .superposition-hero{
+ border-bottom-left-radius: 20px;
+ border-bottom-right-radius: 20px;
+ padding: 24px 16px;
+}
+
+ .accroche-hero{
+ margin-bottom: 12px;
+}
+
+ .contenu-hero-superpose h1{
+ font-size: clamp(1.9rem, 9vw, 2.7rem);
+}
+
+ .contenu-hero-superpose p{
+ font-size: 0.96rem;
+}
+
+ .actions-hero{
+ flex-direction: column;
+}
+
+ .bouton-hero{
+ width: 100%;
+}
+
+ .search-bar{
+ flex-direction: column;
+ align-items: stretch;
+}
+
+ .search-tools{
+ width: 100%;
+}
+
+ .filter-chip{
+ width: 100%;
+}
+
+ .contact-layout{
+ grid-template-columns: 1fr;
+}
+
+ .contact-form .hero-btn{
+ width: 100%;
+ justify-self: stretch;
+}
+
+ .statistiques-hero{
+ grid-template-columns: 1fr;
+}
+
+ .bandeau-confiance{
+ margin-top: -20px;
+ padding: 20px 16px;
+}
+
+ .haut-pied{
+ flex-direction: column;
+ align-items: flex-start;
+}
+
+ .navbar{
+ padding: 12px 0;
+}
+
+ .nav-link{
+ width: 100%;
+ justify-content: flex-start;
+ margin-left: 0;
+}
+
+ .reseaux-pied{
+ width: 100%;
+}
+
+ .bas-pied{
+ flex-direction: column;
+ align-items: flex-start;
+}
+
+ .pied-site{
+ margin-top: 64px;
+ padding-top: 44px;
+}
+
+ .pied-site .col-md-3{
+ padding-right: 12px;
+}
+
+ .pied-site .col-md-3:not(:first-child){
+ padding-left: 12px;
+}
+
+ .pied-site .col-md-3:not(:first-child)::before{
+ display: none;
+}
 }
