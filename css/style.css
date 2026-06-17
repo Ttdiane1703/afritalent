@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Inter:wght@300;400;500&display=swap');
-
+/* les comments dans le css sont en français pour expliquer les choix de design et les fonctionnalités implémentées, facilitant ainsi la maintenance et les futures modifications du code. */
 :root{
  --primary: #6C63FF;
  --secondary: #FF7A18;
@@ -98,7 +98,7 @@ img{
  left: 0;
  right: 0;
  width: 100%;
- z-index: 2;
+ z-index: 1030;
  backdrop-filter: blur(16px);
  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.07);
@@ -174,6 +174,11 @@ img{
  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
 }
 
+.navbar-toggler-icon{
+ width: 1.35em;
+ height: 1.35em;
+}
+
 .navbar-toggler:focus{
  box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.15);
 }
@@ -209,18 +214,18 @@ img{
  transition: opacity var(--transition), visibility var(--transition), transform var(--transition), background var(--transition);
  z-index: 10;
 }
-
+/* La classe "is-visible" est ajoutée dynamiquement par le JavaScript lorsque l'utilisateur fait défiler la page vers le bas, rendant le bouton visible et interactif. */
 .back-to-top.is-visible{
  opacity: 1;
  visibility: visible;
  transform: translateY(0);
 }
-
+/* Un léger effet de levée et un changement de couleur au survol pour indiquer que le bouton est cliquable, améliorant ainsi l'expérience utilisateur. */
 .back-to-top:hover{
  background: var(--secondary);
  transform: translateY(-3px);
 }
-
+/* Bouton primaire réutilisable pour les appels à l'action, avec un design simple et moderne qui s'intègre bien dans l'ensemble du site. */
 .btn-primary{
  background: var(--primary);
  border: none;
@@ -228,16 +233,16 @@ img{
  border-radius: var(--radius);
  transition: var(--transition);
 }
-
+/* Un effet de survol qui change la couleur de fond pour renforcer l'interactivité du bouton, tout en restant cohérent avec la palette de couleurs du site. */
 .btn-primary:hover{
  background: var(--secondary);
 }
-
+/* Le conteneur principal de chaque page, avec un padding généreux pour espacer le contenu du haut et du bas, et une position relative pour permettre l'ajout d'effets de superposition sans affecter la mise en page globale. */
 main.container{
  padding: 48px 16px 80px;
  position: relative;
 }
-
+/* Un effet de superposition subtil appliqué au conteneur principal pour ajouter de la profondeur et de l'intérêt visuel à la page, en utilisant des dégradés radiaux pour créer des points lumineux doux qui attirent l'œil sans distraire du contenu principal. */
 main.container::before{
  content: "";
  position: absolute;
@@ -248,15 +253,16 @@ main.container::before{
  radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.35), transparent 24%);
  z-index: -1;
 }
-
+/* Les sections d'en-tête et de héros utilisent une structure similaire avec des éléments positionnés relativement pour permettre des superpositions d'images et de contenu, créant ainsi des zones visuellement attrayantes qui captent l'attention des visiteurs dès leur arrivée sur la page. */
 .entete-hero{
  position: relative;
 }
-
+/* La classe "media-hero" est utilisée pour les sections de héros qui incluent des éléments multimédias, tels que des images ou des vidéos, permettant une superposition de contenu textuel ou d'autres éléments graphiques pour créer un impact visuel fort dès l'arrivée sur la page. */
 .media-hero{
  position: relative;
+ overflow: hidden;
 }
-
+/* La classe "section-hero" est conçue pour les sections d'en-tête et de héros, avec un padding généreux pour espacer le contenu du haut et du bas, un alignement centré pour mettre en valeur les titres et les textes d'accroche, et une largeur maximale pour garantir une lisibilité optimale sur les écrans plus larges. */
 .section-hero{
  padding-top: 32px;
  padding-bottom: 96px;
@@ -264,7 +270,7 @@ main.container::before{
  max-width: 900px;
  margin: 0 auto;
 }
-
+/* La classe "etiquette-section" est utilisée pour les petites étiquettes ou badges qui accompagnent les titres de section, avec un design arrondi et une palette de couleurs cohérente avec le thème du site, ajoutant une touche de style tout en aidant à organiser visuellement le contenu. */
 .etiquette-section{
  display: inline-flex;
  align-items: center;
@@ -279,7 +285,7 @@ main.container::before{
  text-transform: uppercase;
  margin-bottom: 16px;
 }
-
+/* Les titres de section dans les sections d'en-tête et de héros sont conçus pour être grands et accrocheurs, avec une taille de police qui s'adapte à la largeur de l'écran grâce à la fonction "clamp", garantissant ainsi une lisibilité optimale sur tous les appareils. */
 .section-hero h2{
  max-width: 760px;
  margin: 0 auto 18px;
@@ -287,14 +293,14 @@ main.container::before{
  color: #4b5563;
  font-weight: 500;
 }
-
+/* Le premier paragraphe dans les sections d'en-tête et de héros est stylisé pour être un texte d'accroche ou de description, avec une largeur maximale pour garantir une bonne lisibilité, un espacement automatique pour centrer le texte, et une couleur légèrement atténuée pour différencier le texte d'accroche du titre principal. */
 .section-hero > p:first-of-type{
  max-width: 760px;
  margin: 0 auto;
  font-size: 1.05rem;
  color: #5b6472;
 }
-
+/* La classe "actions-hero" est utilisée pour les conteneurs de boutons d'appel à l'action dans les sections d'en-tête et de héros, avec une disposition flexible qui permet aux boutons de s'adapter à différentes tailles d'écran tout en maintenant un espacement cohérent et une présentation centrée. */
 .actions-hero{
  display: flex;
  flex-wrap: wrap;
@@ -302,7 +308,7 @@ main.container::before{
  margin: 28px 0 24px;
  justify-content: center;
 }
-
+/* Les boutons d'appel à l'action dans les sections d'en-tête et de héros sont conçus pour être visuellement attrayants et interactifs, avec des coins arrondis, une typographie en gras pour renforcer leur importance, et des transitions fluides pour les effets de survol, encourageant ainsi les visiteurs à cliquer et à interagir avec le contenu. */
 .bouton-hero{
  border: none;
  border-radius: 999px;
@@ -311,48 +317,47 @@ main.container::before{
  font-family: var(--title-font);
  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
 }
-
+/* Un effet de survol qui soulève légèrement le bouton pour indiquer qu'il est interactif, renforçant ainsi l'expérience utilisateur en fournissant un retour visuel clair lorsque les visiteurs passent la souris sur les boutons d'appel à l'action. */
 .bouton-hero:hover{
  transform: translateY(-3px);
 }
-
+/* Les éléments de contenu superposés dans les sections d'en-tête et de héros sont initialement masqués et animés pour apparaître avec un effet de révélation fluide, créant ainsi une expérience d'accueil engageante qui capte l'attention des visiteurs dès leur arrivée sur la page. */
 .contenu-hero-superpose > *{
  opacity: 0;
  transform: translateY(22px);
  animation: heroReveal 0.8s ease forwards;
 }
-
-
+/* Les délais d'animation sont échelonnés pour les éléments de contenu superposés dans les sections d'en-tête et de héros, créant un effet de cascade qui rend l'apparition du contenu plus dynamique et engageante pour les visiteurs. */
 .bouton-hero-primaire{
  background: linear-gradient(135deg, var(--primary), #8a7dff);
  color: var(--white);
  box-shadow: 0 16px 30px rgba(108, 99, 255, 0.28);
 }
-
+/* Un effet de survol plus prononcé pour les boutons d'appel à l'action primaires dans les sections d'en-tête et de héros, avec une augmentation de la taille de l'ombre portée pour renforcer l'interactivité et attirer davantage l'attention des visiteurs sur ces éléments clés. */
 .bouton-hero-primaire:hover{
  box-shadow: 0 22px 38px rgba(108, 99, 255, 0.34);
 }
-
+/* Les boutons d'appel à l'action secondaires dans les sections d'en-tête et de héros sont conçus pour offrir une alternative visuelle aux boutons primaires, avec un fond blanc et une bordure subtile qui les différencie tout en restant cohérents avec le thème général du site. */
 .bouton-hero-secondaire{
  background: var(--white);
  color: var(--dark);
  border: 1px solid rgba(17, 24, 39, 0.08);
  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
 }
-
+/* Un effet de survol qui change la couleur de fond pour un ton plus clair, tout en renforçant l'ombre portée pour indiquer que le bouton est interactif, offrant ainsi une expérience utilisateur améliorée et encourageant les visiteurs à cliquer sur ces éléments d'appel à l'action secondaires. */
 .bouton-hero-secondaire:hover{
  background: #fff7f0;
  color: var(--secondary);
  box-shadow: 0 18px 34px rgba(255, 122, 24, 0.16);
 }
-
+/* La classe "statistiques-hero" est utilisée pour les sections d'en-tête et de héros qui présentent des statistiques clés ou des chiffres importants, avec une disposition en grille qui permet de présenter ces informations de manière claire et organisée, tout en maintenant un espacement cohérent entre les éléments pour garantir une bonne lisibilité. */
 .statistiques-hero{
  display: grid;
  grid-template-columns: repeat(3, minmax(0, 1fr));
  gap: 18px;
  margin-top: 32px;
 }
-
+/* Les cartes de statistiques dans les sections d'en-tête et de héros sont conçues pour être visuellement attrayantes et faciles à lire, avec un fond semi-transparent qui permet au design de la page de transparaître tout en assurant une bonne lisibilité des chiffres et des descriptions, renforcée par une typographie claire et un espacement généreux. */
 .carte-stat{
  background: rgba(255, 255, 255, 0.88);
  border-radius: 20px;
@@ -360,7 +365,7 @@ main.container::before{
  box-shadow: 0 14px 36px rgba(17, 24, 39, 0.08);
  backdrop-filter: blur(10px);
 }
-
+/* Les titres des statistiques dans les cartes de statistiques sont stylisés pour être grands et accrocheurs, avec une taille de police qui s'adapte à la largeur de l'écran grâce à la fonction "clamp", garantissant ainsi une lisibilité optimale sur tous les appareils, et une couleur sombre pour renforcer leur importance visuelle. */
 .carte-stat strong{
  display: block;
  margin-bottom: 6px;
@@ -369,12 +374,12 @@ main.container::before{
  font-size: clamp(1.7rem, 3vw, 2.4rem);
  line-height: 1;
 }
-
+/* Les descriptions des statistiques dans les cartes de statistiques sont conçues pour être un complément informatif aux chiffres principaux, avec une couleur légèrement atténuée pour différencier le texte de description du titre principal, et une typographie en gras pour renforcer leur importance tout en assurant une bonne lisibilité. */
 .carte-stat span{
  color: #5f6b7a;
  font-weight: 500;
 }
-
+/* La classe "grille-cartes" est utilisée pour les sections qui présentent des cartes de contenu, telles que les freelances, les articles de blog ou les témoignages, avec une disposition en grille qui permet de présenter ces éléments de manière claire et organisée, tout en maintenant un espacement cohérent entre les cartes pour garantir une bonne lisibilité et une expérience utilisateur agréable. */
 .grille-cartes{
  display: grid;
  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -417,6 +422,18 @@ main.container::before{
 
 .carte-blog img{
  object-position: center 25%;
+}
+
+.carte-blog .blog-image-1{
+ object-position: center 28%;
+}
+
+.carte-blog .blog-image-2{
+ object-position: center 42%;
+}
+
+.carte-blog .blog-image-3{
+ object-position: center 36%;
 }
 
 /* Repositionnement spécifique des images freelance pour mieux centrer les visages */
@@ -508,6 +525,7 @@ main.container::before{
  border-radius: 24px;
 }
 
+/* Image principale de la page d'accueil : hauteur fixe, recadrage propre et coins arrondis pour donner un vrai effet hero. */
 .image-hero{
  height: 420px;
  object-fit: cover;
@@ -516,6 +534,7 @@ main.container::before{
  box-shadow: 0 20px 50px rgba(17, 24, 39, 0.18);
 }
 
+/* Calque sombre au-dessus de l'image hero afin de garder le texte lisible quelle que soit la photo. */
 .superposition-hero{
  position: absolute;
  inset: 0;
@@ -529,12 +548,14 @@ main.container::before{
  border-bottom-right-radius: 28px;
 }
 
+/* Contenu texte centre dans le hero image, limite en largeur pour rester confortable a lire. */
 .contenu-hero-superpose{
  width: min(100%, 760px);
  text-align: center;
  color: var(--white);
 }
 
+/* Petit badge place au-dessus du titre hero pour introduire la promesse principale. */
 .accroche-hero{
  display: inline-block;
  margin-bottom: 18px;
@@ -548,6 +569,7 @@ main.container::before{
  backdrop-filter: blur(6px);
 }
 
+/* Titre principal du hero : taille responsive et contraste fort pour capter l'attention. */
 .contenu-hero-superpose h1{
  color: var(--white);
  font-size: clamp(2.3rem, 5vw, 4.35rem);
@@ -556,6 +578,7 @@ main.container::before{
  margin-bottom: 16px;
 }
 
+/* Texte descriptif du hero, volontairement plus etroit pour eviter les lignes trop longues. */
 .contenu-hero-superpose p{
  max-width: 640px;
  margin: 0 auto;
@@ -563,6 +586,7 @@ main.container::before{
  font-size: 1.05rem;
 }
 
+/* Hero utilise sur les pages internes, avec fond degrade plus leger que le hero image de l'accueil. */
 .hero-interne{
  padding: 64px 0 72px;
  background:
@@ -572,6 +596,7 @@ main.container::before{
  backdrop-filter: blur(10px);
 }
 
+/* Conteneur des titres de pages internes, centre et limite en largeur pour garder une hierarchie claire. */
 .contenu-hero-interne{
  max-width: 780px;
  margin: 0 auto;
@@ -591,21 +616,25 @@ main.container::before{
  font-size: 1.05rem;
 }
 
+/* Section d'introduction du catalogue freelances, rapprochee du hero pour connecter les chiffres au contenu. */
 .directory-intro{
  padding-top: 0;
 }
 
+/* Sections du catalogue freelances alignees au centre pour donner une lecture simple et guidee. */
 .search-panel,
 .filter-section,
 .freelance-listing{
  text-align: center;
 }
 
+/* Bloc de recherche limite en largeur pour eviter un champ trop etire sur grand ecran. */
 .search-panel{
  max-width: 980px;
  margin: 0 auto 20px;
 }
 
+/* Barre de recherche composee d'un champ et de boutons d'outils, avec effet glassmorphism coherent avec le site. */
 .search-bar{
  display: flex;
  align-items: center;
@@ -619,6 +648,7 @@ main.container::before{
  backdrop-filter: blur(12px);
 }
 
+/* Zone interne du champ de recherche : icone et input restent parfaitement alignes. */
 .search-field{
  flex: 1;
  display: flex;
@@ -627,11 +657,13 @@ main.container::before{
  padding: 0 6px;
 }
 
+/* Icone de recherche coloree avec la couleur principale pour guider l'utilisateur. */
 .search-field i{
  color: var(--primary);
  font-size: 1.1rem;
 }
 
+/* Input de recherche sans bordure propre, car le conteneur parent porte deja la surface visuelle. */
 .search-field input{
  width: 100%;
  border: none;
@@ -641,6 +673,7 @@ main.container::before{
  font-size: 1rem;
 }
 
+/* Groupes de boutons de recherche et de filtres, adaptables sur plusieurs lignes en mobile. */
 .search-tools,
 .filter-chips{
  display: flex;
@@ -649,6 +682,7 @@ main.container::before{
  justify-content: center;
 }
 
+/* Bouton de filtre reutilisable : forme pill, ombre douce et transition pour signaler l'interactivite. */
 .filter-chip{
  border: 1px solid rgba(17, 24, 39, 0.08);
  border-radius: 999px;
@@ -661,10 +695,12 @@ main.container::before{
  backdrop-filter: blur(10px);
 }
 
+/* Espacement entre l'icone et le texte dans les boutons de filtre. */
 .filter-chip i{
  margin-right: 8px;
 }
 
+/* Etat actif ou survole d'un filtre : couleur de marque et leger mouvement vertical. */
 .filter-chip:hover,
 .filter-chip.active{
  transform: translateY(-2px);
@@ -695,6 +731,7 @@ main.container::before{
  text-align: center;
 }
 
+/* Sections de presentation, equipe et valeurs centrees pour garder une composition institutionnelle propre. */
 .about-story,
 .about-team,
 .values-section,
@@ -702,15 +739,18 @@ main.container::before{
  text-align: center;
 }
 
+/* Texte de presentation limite en largeur pour ameliorer la lisibilite de la page A propos. */
 .about-story{
  max-width: 980px;
  margin: 0 auto;
 }
 
+/* Petit espace avant la grille de valeurs afin de respirer apres le titre de section. */
 .values-grid{
  margin-top: 16px;
 }
 
+/* Conteneur de la page blog, centre et limite pour aligner les articles avec le reste du site. */
 .blog-section{
  text-align: center;
  max-width: 980px;
@@ -718,15 +758,18 @@ main.container::before{
 }
 
 
+/* Section tarifs : largeur controlee pour garder les offres comparables et faciles a scanner. */
 .pricing-section{
  text-align: center;
  max-width: 980px;
  margin: 0 auto;
 }
+/* Section contact centree, avec un layout interne qui se charge de l'alignement gauche du formulaire. */
 .contact-section{
  text-align: center;
 }
 
+/* Surfaces principales des cartes d'information, tarifs et formulaire : fond clair, rayon fort et ombre douce. */
 .info-card,
 .pricing-card,
 .contact-form,
@@ -738,19 +781,23 @@ main.container::before{
  backdrop-filter: blur(10px);
 }
 
+/* Espacement standard sous les titres des cartes d'information et de tarifs. */
 .info-card h3,
 .pricing-card h3{
  margin-bottom: 12px;
 }
 
+/* Les cartes de prix gardent la meme hauteur dans la grille Bootstrap. */
 .pricing-grid{
  align-items: stretch;
 }
 
+/* Carte tarifaire centree pour presenter badge, prix, avantages et bouton dans une lecture verticale. */
 .pricing-card{
  text-align: center;
 }
 
+/* Badge iconographique de chaque offre tarifaire, utile pour distinguer rapidement les plans. */
 .pricing-badge{
  width: 64px;
  height: 64px;
@@ -764,6 +811,7 @@ main.container::before{
  font-size: 1.5rem;
 }
 
+/* Prix mis en avant avec la police de titre pour renforcer la hierarchie visuelle. */
 .pricing-price{
  margin-bottom: 18px;
  color: var(--dark);
@@ -772,6 +820,7 @@ main.container::before{
  font-weight: 700;
 }
 
+/* Liste des avantages d'une offre : suppression des puces natives et espacement regulier. */
 .pricing-card ul{
  list-style: none;
  padding: 0;
@@ -780,16 +829,19 @@ main.container::before{
  gap: 12px;
 }
 
+/* Icones des avantages tarifaires colorees avec la couleur secondaire. */
 .pricing-card li i{
  margin-right: 10px;
  color: var(--secondary);
 }
 
+/* Offre mise en avant avec une bordure coloree et une ombre plus presente. */
 .pricing-card-featured{
  border: 1px solid rgba(108, 99, 255, 0.18);
  box-shadow: 0 24px 52px rgba(108, 99, 255, 0.12);
 }
 
+/* Grille de contact : informations a gauche, formulaire a droite sur desktop. */
 .contact-layout{
  display: grid;
  grid-template-columns: 0.95fr 1.05fr;
@@ -797,38 +849,46 @@ main.container::before{
  align-items: start;
 }
 
+/* Bloc d'information contact aligne a gauche pour une lecture plus naturelle. */
 .contact-info{
  text-align: left;
 }
 
+/* Liste compacte des points de contact : email, telephone, localisation. */
 .contact-points{
  display: grid;
  gap: 14px;
  margin-top: 24px;
 }
 
+/* Suppression des marges par defaut pour garder une liste de contact reguliere. */
 .contact-points p{
  margin: 0;
 }
 
+/* Icones des coordonnees colorees pour faciliter le scan visuel. */
 .contact-points i{
  color: var(--primary);
  margin-right: 10px;
 }
 
+/* Formulaire en grille verticale afin de garder labels, champs et messages d'erreur bien alignes. */
 .contact-form{
  display: grid;
  gap: 12px;
  text-align: left;
 }
 
+/* Labels de formulaire renforces pour bien associer chaque champ a son intitule. */
 .contact-form label{
  font-weight: 600;
  color: var(--dark);
 }
 
+/* Style commun des champs de formulaire : surface douce et bordure discrete. */
 .contact-form input,
 .contact-form select,
+/* Zone de message plus haute que les autres champs pour encourager une demande detaillee. */
 .contact-form textarea{
  width: 100%;
  border: 1px solid rgba(17, 24, 39, 0.1);
@@ -838,6 +898,7 @@ main.container::before{
  background: #fbfcfe;
 }
 
+/* Etat invalide affiche par le JavaScript lorsqu'un champ ne respecte pas les regles. */
 .contact-form input.is-invalid,
 .contact-form select.is-invalid,
 .contact-form textarea.is-invalid{
@@ -886,11 +947,13 @@ main.container::before{
  resize: vertical;
 }
 
+/* Ancien bouton de formulaire conserve pour compatibilite avec les classes existantes. */
 .contact-form .hero-btn{
  width: auto;
  justify-self: start;
 }
 
+/* Bandeau de confiance place sous le hero, avec logos textuels et surface translucide. */
 .bandeau-confiance{
  display: grid;
  gap: 18px;
@@ -905,11 +968,13 @@ main.container::before{
  text-align: center;
 }
 
+/* Texte d'introduction du bandeau de confiance. */
 .bandeau-confiance > span{
  color: #4b5563;
  font-weight: 600;
 }
 
+/* Liste des marques/organisations en flex pour passer proprement sur plusieurs lignes. */
 .logos-confiance{
  display: flex;
  flex-wrap: wrap;
@@ -917,6 +982,7 @@ main.container::before{
  gap: 12px;
 }
 
+/* Pastilles de logos textuels, legeres et faciles a scanner. */
 .logos-confiance span{
  padding: 10px 14px;
  border-radius: 999px;
@@ -926,6 +992,7 @@ main.container::before{
  letter-spacing: 0.02em;
 }
 
+/* Sections principales de la page d'accueil, toutes centrees pour une lecture guidee. */
 .how-it-works,
 .categories,
 .section-temoignages,
@@ -945,6 +1012,7 @@ main.container::before{
  margin-bottom: 28px;
 }
 
+/* Cartes de processus et categories : surface simple avec hover pour indiquer l'interaction. */
 .how-it-works article,
 .categories article{
  background: var(--white);
@@ -960,6 +1028,7 @@ main.container::before{
  box-shadow: 0 20px 45px rgba(17, 24, 39, 0.12);
 }
 
+/* Titres des cartes avec icone integree et alignement central. */
 .how-it-works h3,
 .categories h3{
  display: flex;
@@ -969,6 +1038,7 @@ main.container::before{
  margin-bottom: 12px;
 }
 
+/* Icones des cartes d'accueil, dans un carre arrondi colore pour creer un repere visuel. */
 .how-it-works i,
 .categories i{
  width: 48px;
@@ -1435,6 +1505,10 @@ body.theme-dark .navbar-toggler-icon{
  filter: invert(1);
 }
 
+body.theme-dark .navbar-collapse{
+ background: rgba(15, 23, 42, 0.97);
+}
+
 body.theme-dark section,
 body.theme-dark .bandeau-confiance,
 body.theme-dark .carte-freelance,
@@ -1693,6 +1767,10 @@ body.theme-dark .pied-site hr{
 }
 
 @media (max-width: 768px){
+ body{
+ padding-top: 78px;
+}
+
  section{
  padding: 56px 0;
 }
@@ -1706,22 +1784,45 @@ body.theme-dark .pied-site hr{
  object-position: center;
 }
 
+ .carte-blog img{
+ height: 220px;
+ object-position: center 35%;
+}
+
+ .carte-blog .blog-image-1{
+ object-position: center 30%;
+}
+
+ .carte-blog .blog-image-2{
+ object-position: center 48%;
+}
+
+ .carte-blog .blog-image-3{
+ object-position: center 42%;
+}
+
  .carte-freelance .corps-carte,
  .carte-temoignage .corps-carte,
  .carte-blog .corps-carte{
  padding: 14px;
 }
 
+ .media-hero{
+ min-height: 520px;
+}
+
  .image-hero{
- height: 280px;
+ height: 520px;
  border-bottom-left-radius: 20px;
  border-bottom-right-radius: 20px;
 }
 
  .superposition-hero{
+ min-height: 520px;
+ align-items: center;
  border-bottom-left-radius: 20px;
  border-bottom-right-radius: 20px;
- padding: 24px 16px;
+ padding: 40px 16px;
 }
 
  .accroche-hero{
@@ -1734,6 +1835,30 @@ body.theme-dark .pied-site hr{
 
  .contenu-hero-superpose p{
  font-size: 0.96rem;
+}
+
+ .hero-interne{
+ min-height: 340px;
+ display: flex;
+ align-items: center;
+ padding: 56px 0;
+}
+
+ .contenu-hero-interne{
+ padding: 0 10px;
+}
+
+ .contenu-hero-interne h1{
+ font-size: clamp(1.75rem, 8vw, 2.55rem);
+ line-height: 1.15;
+ letter-spacing: 0;
+ margin-bottom: 12px;
+}
+
+ .contenu-hero-interne p{
+ display: block;
+ font-size: 0.96rem;
+ line-height: 1.65;
 }
 
  .actions-hero{
@@ -1782,6 +1907,38 @@ body.theme-dark .pied-site hr{
 
  .navbar{
  padding: 12px 0;
+}
+
+ .navbar > .container{
+ gap: 10px;
+}
+
+ .navbar-collapse{
+ flex-basis: 100%;
+ order: 3;
+ margin-top: 10px;
+ padding: 12px;
+ max-height: calc(100vh - 92px);
+ overflow-y: auto;
+ border-radius: 18px;
+ background: rgba(255, 255, 255, 0.96);
+ box-shadow: 0 18px 40px rgba(17, 24, 39, 0.12);
+}
+
+ .navbar-nav{
+ width: 100%;
+}
+
+ .navbar-collapse > .d-flex{
+ width: 100%;
+ justify-content: flex-start;
+ gap: 12px !important;
+ margin-top: 8px;
+}
+
+ .navbar .btn-cta{
+ max-width: none;
+ white-space: normal;
 }
 
  .nav-link{
